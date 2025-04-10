@@ -14,9 +14,9 @@
         $query = $conn->prepare('SELECT * FROM account WHERE username_Account = ?');
         $query->bind_param('s', $taikhoan);
         $query->execute();
-        
+
         $query->store_result();
-        $query->bind_result($id, $display_Account, $type_Account, $username_Account, $password_Account, $gender_Account, $phone_Account, $gmail_Account);
+        $query->bind_result($id, $display_Account, $password_Account, $type_Account, $username_Account, $gender_Account, $phone_Account, $gmail_Account);
 
         // Fetch data if exists
         if ($query->fetch() && $matkhau == $password_Account) {
