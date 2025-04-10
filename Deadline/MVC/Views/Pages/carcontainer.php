@@ -1167,7 +1167,7 @@
 
         // Hàm tính giá vé dựa trên giờ đi, hạng vé, loại hành khách và khoảng cách
         function calculateTicketPrice($basePrice, $departureTime, $class, $passengerType) {
-            $departureDateTime = new DateTime($departureTime, new DateTimeZone('Asia/Ho_Chi_Minh'));
+            $departureDateTime = new DateTime('2025-04-10 ' . $departureTime, new DateTimeZone('Asia/Ho_Chi_Minh'));
             $hour = $departureDateTime->format('H');
 
             // Tăng giảm giá vé theo giờ đi
@@ -1413,7 +1413,7 @@
                 while ($stmt->fetch()) {
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
+                    $gioDiDateTime = new DateTime('2025-04-10 ' . $gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
@@ -1602,7 +1602,7 @@
                     $gioDi = $row["GioDi"];
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
+                    $gioDiDateTime = new DateTime('2025-04-10 ' . $gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
