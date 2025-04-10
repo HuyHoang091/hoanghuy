@@ -1586,6 +1586,7 @@
     </script>
     <!----load---->
     <?php
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         function load2($diemDi, $diemDen, $soNguoiLon, $soTreEm, $soTreNho, $gdloc = null, $hbloc = null, $hangcb = null){
             require_once 'MVC/Core/connectDB1.php';
             $db = new connectDB1();
