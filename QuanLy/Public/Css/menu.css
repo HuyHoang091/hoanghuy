@@ -1,0 +1,123 @@
+/*------------------------------------LOGO-------------------------------------*/
+.logoct {
+    flex: 1;
+    max-width: 100px;
+    height: auto;
+  }
+  /*---------------------------------------MENU----------------------------------*/
+  .menu {
+    flex: 3;
+    display: flex;
+  }
+  .menu > li {
+    padding: 10px 15px;
+    position: relative;
+    list-style: none;
+  }
+  
+  .menu > li > a {
+    font-size: 20px !important; 
+    font-weight: bold;
+    display: block;
+    line-height: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  header {
+    display: flex !important;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 50px !important;
+    height: 75px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0;
+    padding: 0;
+  }
+  header.sticky {
+    background: rgba(255, 255, 255, 0.7);
+    
+  }
+  header:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica, Arial, sans-serif";
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  } */
+  .footer {
+    text-align: center;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 70px;
+  }
+  .footer-top img {
+    height: 50px;
+  }
+  .footer-top li {
+    padding: 0 12px;
+    position: relative;
+    list-style: none;
+  }
+  .footer-top a{
+    text-decoration: none;
+    color: black;
+  }
+  .footer-top li::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 80%;
+    background: darkblue;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .footer-top li:last-child::after {
+    display: none;
+  }
+  .footer-top li:last-child a {
+    margin-right: 10px;
+    color: cyan;
+  }
+  .footer-center {
+    text-align: center;
+  }
+  .footer-bottom {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .favourite-container{
+    position: relative;
+    width: 75%;
+    height: 900px;
+    padding-left: 12.25%;
+    padding-right: 12.25%;
+  }
+  .favourite-container h1 {
+    margin-top: 20px;
+    font-size: 36px;
+  }
+  .favourite-container p {
+    margin-top: 1px;
+    font-size: 20px;
+    margin-bottom : 10px;
+  }

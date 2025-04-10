@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/40f672cbfb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="GD_home_admin.css">
+    <script src="ckeditor/ckeditor.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!----------------------------------------------LOGO------------------------------------------------------->
+        </div class="logo">
+            <img class ="logoct" src="./img/logoct.png">
+        </div>
+        <div class="menu">
+            <li><a href="">Trang chủ</a></li>
+            <li><a href="">Quản lý khách sạn</a></li>
+            <li><a href="">Quản lý tour</a></li>
+            <li><a href="">Quản lý vé máy bay</a></li>
+            <li><a href="">Quản lý cẩm nang</a></li>
+            <li><a href="">Quản lý khách hàng</a></li>
+            <li><a href="">Thống kê</a></li>
+            <li><a href="">Tài khoản</a></li>
+        </div>
+    </header>   
+    <section class="logo-container">
+        <section class="logo-row1">
+            <a href=""><img src="./img/home.png"></a>
+            <a href=""><img src="./img/hotel.png"></a>
+            <a href=""><img src="./img/tour.png"></a>
+            <a href=""><img src="./img/plane.png"></a>
+        </section>
+        <section class="logo-row2">
+            <a href=""><img src="./img/camnang.png"></a>
+            <a href=""><img src="./img/customer.png"></a>
+            <a href=""><img src="./img/doanhthu.png"></a>
+            <a href=""><img src="./img/account.png"></a>
+        </section>
+    </section>
+</body>
+<script>
+    const header = document.querySelector("header")
+    window.addEventListener("scroll",function(){
+    x = window.pageYOffset
+    console.log(x)
+    if(x>0){
+        header.classList.add("sticky")
+    }
+    else{
+        header.classList.remove("sticky")
+    }
+})
+</script>
+</html>

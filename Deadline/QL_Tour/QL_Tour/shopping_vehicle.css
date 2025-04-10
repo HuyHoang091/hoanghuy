@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica, Arial, sans-serif";
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+/*-----------------------------------HEADER--------------------------------------*/
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px 50px;
+  height: 75px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: gray;
+}
+header.sticky {
+  background: gray;
+}
+/* header:hover {
+  background: rgba(255, 255, 255, 1);
+} */
+/*------------------------------------LOGO-------------------------------------*/
+.logoct {
+  flex: 1;
+  max-width: 100px;
+  height: auto;
+}
+/*---------------------------------------MENU----------------------------------*/
+.menu {
+  flex: 3;
+  display: flex;
+}
+.menu > li {
+  padding: 10px 15px;
+  position: relative;
+}
+
+.menu > li > a {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  line-height: 20px;
+}
+/*-----------------------------------FOOT--------------------------------------*/
+.footer {
+  text-align: center;
+}
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 70px;
+}
+.footer-top img {
+  height: 50px;
+}
+.footer-top li {
+  padding: 0 12px;
+  position: relative;
+}
+.footer-top li::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 80%;
+  background: darkblue;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.footer-top li:last-child::after {
+  display: none;
+}
+.footer-top li:last-child a {
+  margin-right: 10px;
+  color: cyan;
+}
+.footer-center {
+  text-align: center;
+}
+.footer-bottom {
+  margin: 20px 0;
+  text-align: center;
+}
+/*-----------------------------------Thẻ nội dung Tour--------------------------------------*/
+
+/* Container cho các thẻ Tour */
+.card-container {
+  margin-top: 3%;
+  padding: 30px 5% 30px 5%;
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.797
+  ); /* Đặt màu nền cho các thẻ để chúng nổi bật trên nền màu */
+  width: 100%;
+}
+.card {
+  padding: 30px;
+  background-color: rgb(224, 205, 186);
+  display: none; /* Mặc định ẩn các thẻ */
+  margin: 10px;
+  width: 1300px;
+  overflow: hidden;
+  box-shadow: 10px 5px 5px cyan;
+  font-family: Arial, sans-serif;
+}
+.card img {
+  width: 100%;
+  height: 30%;
+}
+.card .type {
+  margin-left: 70%;
+  position: absolute;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 25px;
+  border-bottom-right-radius: 5px;
+}
+.card .content {
+  padding: 1em;
+  border: thick double #32a1ce;
+}
+.card .details {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+.card .details ul {
+  padding-left: 15px;
+}
+.card .details ul li {
+  list-style-type: circle;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.card .price {
+  font-size: 22px;
+  color: #e67e22;
+  font-weight: bold;
+  text-align: right;
+  -webkit-animation: my 10000ms infinite;
+  -moz-animation: my 10000ms infinite;
+  -o-animation: my 10000ms infinite;
+  animation: my 10000ms infinite;
+}
+.card .price small {
+  font-size: 14px;
+  color: #999;
+  -webkit-animation: 10000ms infinite;
+  -moz-animation: my 10000ms infinite;
+  -o-animation: my 10000ms infinite;
+  animation: my 10000ms infinite;
+}
+
+/* chữ nhấp nháy */
+@-webkit-keyframes my {
+  0% {
+    color: #151307;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #151307;
+  }
+}
+@-moz-keyframes my {
+  0% {
+    color: #151307;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #151307;
+  }
+}
+@-o-keyframes my {
+  0% {
+    color: #151307;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #151307;
+  }
+}
+@keyframes my {
+  0% {
+    color: #151307;
+  }
+  50% {
+    color: #fff;
+  }
+  100% {
+    color: #151307;
+  }
+}
+
+/* CSS cho nút xem thêm */
+.load-more {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}

@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica, Arial, sans-serif";
+}
+/*-----------------------------------HEADER--------------------------------------*/
+header {
+  display: flex;
+  width: 100%;
+  padding: 1%;
+  height: auto;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+}
+header.sticky {
+  background-color: white;
+}
+header:hover {
+  background-color: white;
+}
+header h1 {
+  color: black;
+}
+.logoct {
+  flex: 1;
+  max-width: 8%;
+  height: auto;
+  margin-right: 2%;
+}
+.ctn-search{
+  width: 50%;
+  text-align: center;
+}
+.tk-search{
+  padding-right: 15%;
+  font-size: 20px;
+  width: 100%;
+}
+.tk-search input{
+  font-size: 20px;
+width: 25%;
+height: 42px;
+}
+.tk-search button{
+  font-size: 16px;
+  width: 10%;
+  height: 42px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: bisque;
+}
+/*-----------------------------------Menu--------------------------------------*/
+.menu {
+  position: relative;
+  width: 20%;
+  text-align: center;
+  float: left;
+}
+.menu-main {
+  margin-top: 1.5%;
+  margin-left: 2%;
+  position: fixed;
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.menu-main h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.menu-main div {
+  margin-bottom: 10px;
+}
+
+.menu-main a {
+  text-decoration: none;
+}
+/*----------------------------------Sub-Menu--------------------------------------*/
+.menu-tk{
+  position: relative;
+}
+.submenu-container {
+  position: absolute;
+  visibility: hidden;
+  padding: 1%;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  height: auto;
+  text-align: center;
+  background-color:white;
+  border-radius: 4px;
+}
+.submenu-container a button {
+  width: 95%;
+  height: 42px;
+  margin: 0px 5px 15px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color:bisque;
+}
+.submenu-item:hover {
+  background-color:burlywood;
+}
+.menu-tk:hover .submenu-container {
+  visibility: visible;
+}
+/*-----------------------------------Button-Menu--------------------------------------*/
+
+.menu-main button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: bisque;
+
+  transition: background-color 0.3s ease;
+}
+
+.menu-main button:hover {
+  background-color: burlywood;
+}
+.button-modal button {
+  height: 42px;
+}
+.h2-day {
+  padding-left: 40%;
+}
+.h2-month {
+  padding-left: 42%;
+}
+.h2-year{
+  padding-left: 50%;
+}
+.bieudo-container {
+  margin-left: 22.25%;
+  width: 77%;
+  height: 580px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-left: 2px solid #333;
+  border-bottom: 2px solid #333;
+  margin-top: 20px;
+}
+.cot {
+  width: 20%;
+  text-align: center;
+  margin: 0 0.1%;
+}
+.cot:hover {
+  background-color:gold !important;
+}
+.cot-label {
+  margin-top: 2%;
+}

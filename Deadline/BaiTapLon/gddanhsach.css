@@ -1,0 +1,343 @@
+/*-------------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica, Arial, sans-serif";
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  /*-----------------------------------HEADER--------------------------------------*/
+  header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 50px;
+    height: 75px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  header.sticky {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  header:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+  /*------------------------------------LOGO-------------------------------------*/
+  .logoct {
+    flex: 1;
+    max-width: 100px;
+    height: auto;
+  }
+  /*---------------------------------------MENU----------------------------------*/
+  .menu {
+    flex: 3;
+    display: flex;
+  }
+  .menu > li {
+    padding: 10px 15px;
+    position: relative;
+  }
+  
+  .menu > li > a {
+    font-size: 20px; 
+    font-weight: bold;
+    display: block;
+    line-height: 20px;
+  }
+  /* -----------------------------------------SEARCH-------------------------------------- */
+  .ctn-search {
+    text-align: center;
+    width: 25%;
+    margin-bottom: 3%;
+  }
+  .ql-search {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: left;
+  }
+  .ql-search input {
+    position: absolute;
+    font-size: 100%;
+    width: 100%;
+    height: 42px;
+    right: 50%;
+    border-top-left-radius: 40px 40px;
+    border-bottom-left-radius: 40px 40px;
+    padding: 10px 20px 10px 30px;
+  }
+  .ql-search button {
+    position: absolute;
+    width: 50px;
+    height: 42px;
+    right: 40%;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: bisque;
+  }
+  .ql-search button img {
+    height: 42px;
+  }
+  
+  .ql-search button:hover {
+    background-color: burlywood;
+  }
+  .btn-dialog {
+    width: 12%;
+  }
+  .btn-dialog button {
+    width: 100%;
+    height: 42px;
+    border-radius: 4px;
+    background-color: bisque;
+  }
+  .btn-dialog button:hover {
+    background-color: burlywood;
+  }
+/* --------------------------------Main-body----------------------------------------------- */
+.main-body{
+  width: 90%;
+  margin: 0 0 0 0;
+  height: auto;
+  display: flex;
+}
+/* --------------------------------FILTER----------------------------------------------- */
+.filter-container{
+  margin-top: 75px;
+  width: 30%;
+  height: auto;
+  text-align: left;
+  color:black;
+
+}
+/*-----------------------------------Menu--------------------------------------*/
+.menu-main {
+  width: 95%;
+  margin-top: 10%;
+  margin-left: 2%;
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.menu-main h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.menu-main div {
+  margin-bottom: 10px;
+}
+
+.menu-main a {
+  text-decoration: none;
+}
+/*-----------------------------------Button-Menu--------------------------------------*/
+
+.menu-main button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: bisque;
+
+  transition: background-color 0.3s ease;
+}
+
+.menu-main button:hover {
+  background-color: burlywood;
+}
+.button-modal button {
+  height: 42px;
+}
+
+  /* --------------------------------MAIN-CONTENT ----------------------------------------*/
+  .main-content{
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    margin-top: 75px;
+  }
+   
+      /* --------------------------------detail-City----------------------------------------*/
+.detail{
+  padding: 2%;
+  border: black solid 1px;
+  width: 100%;
+}
+.detail img {
+  width: 100%;
+  height: 400px;
+}
+.detail p {
+  font-size: 20px;
+  margin: 0px 5%;
+}
+    /* --------------------------------MAIN-CONTENT----------------------------------------*/
+
+  .content-container{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    height: auto;
+  }
+  .container-ds{
+    width: 100%;
+    height: 245px;
+    text-align: left;
+    border: 1px solid #333;
+    margin-bottom: 30px;
+  }
+  .content{
+    float: left;
+    margin: 20px;
+    width: 70%;
+    background-color:bisque;
+  }
+  .img-hotel{
+    margin-right: 3px;
+    float: left;
+    width: 30%;
+    height: 200px;
+  }
+.name-hotel{
+    color:deepskyblue;
+    width: 69%;
+    height: 30px;
+    float: left;
+}
+.intro-hotel{
+    word-wrap: break-word;
+    width: 69%;
+    height: 40px;
+float: left;
+}
+.detail-hotel{
+    float: left;
+    word-wrap: break-word;
+    width: 69%;
+    height: 75px;
+
+}
+
+.local-hotel{
+    width: 69%;
+
+}
+.buyCount-hotel{
+    width: 69%;
+
+}
+/* -------------------------------------Gia Trung Binh-------------------------------------------- */
+.tbc{
+    background-color: blanchedalmond;
+    width: 25%;
+    height: 200px;
+    float: left;
+    margin-top: 20px;
+    text-align: center;
+}
+.tbc a{
+    width: 100%;
+    height: 226px;
+}
+.tbc a p{
+    padding-top: 40px ;
+    padding-bottom: 40px;
+
+}
+/* -------------------------------------In-Out-------------------------------------------- */
+.form-group label{
+  font-size: 24px;
+}
+.form-group input{
+  font-size: 16px;
+  width: 90%;
+  height: 42px;
+}
+.form-group button{
+  margin-top: 2%;
+  width: 50%;
+  height: 42px;
+  background-color:orange;
+}
+
+  /*-----------------------------------APP--------------------------------------*/
+  .app-container {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    align-items: center;
+    padding: 50px 0 50px 0;
+  }
+  .app-container p {
+    line-height: 20px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
+  .img-app img {
+    height: 50px;
+    cursor: pointer;
+  }
+  /*-----------------------------------FOOT--------------------------------------*/
+  .footer {
+    text-align: center;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 70px;
+  }
+  .footer-top img {
+    height: 50px;
+  }
+  .footer-top li {
+    padding: 0 12px;
+    position: relative;
+  }
+  .footer-top li::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 80%;
+    background: darkblue;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .footer-top li:last-child::after {
+    display: none;
+  }
+  .footer-top li:last-child a {
+    margin-right: 10px;
+    color: cyan;
+  }
+  .footer-center {
+    text-align: center;
+  }
+  .footer-bottom {
+    margin: 20px 0;
+    text-align: center;
+  }

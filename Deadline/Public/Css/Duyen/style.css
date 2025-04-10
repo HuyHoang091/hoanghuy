@@ -1,0 +1,227 @@
+* {
+margin:0;
+padding:0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+button{
+    color:black;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 70px;
+    align-items: center;
+
+}
+.logoct{
+z-index: 1;
+flex: 1;
+max-width: 100px;
+height: auto;
+}
+
+
+.menu{
+    flex: 4;
+    display: flex;
+    
+}
+.menu > li {
+    padding: 0 12px;
+    position: relative;
+
+}
+.menu > li:hover .sub-menu {
+    visibility: visible;
+    top: 30px;
+}
+.sub-menu {
+    visibility: hidden;
+    position: absolute;
+    width: 150px;
+    border: 1px solid #ccc;
+    padding: 10px 0 10px ;
+    top: 50px;
+    transition: 0.3s;
+    z-index: 1;
+    background-color:#333;
+}
+.sub-menu ul{
+    padding-left: 20px;
+}
+.sub-menu li a{
+    font-weight: normal!important;
+    font-size: 16px!important;
+    color: #ccc;
+
+}
+.menu li a{
+font-size: 15px;
+font-weight: bold! important;
+display: block;
+line-height: 35px;
+
+}
+.other {
+    flex: 1;
+    display: flex;
+
+}
+.other > li {
+    padding: 10 10px;
+}
+.other > li:first-child {
+ position: relative;
+}
+.other > li:first-child input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #333;
+    
+ 
+    
+}
+.other > li :first-child button{
+    position: absolute;
+
+}
+#Slider{
+    padding-bottom: 30px;
+    border-bottom: 2px solid #000;
+    overflow: hidden;
+}
+.aspect-ratio-169 {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+    transition: 0.16s;
+    
+  }
+  
+.aspect-ratio-169 img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .dot-container{
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .dot {
+    height: 16px;
+    width: 16px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+  .dot.active{
+    background-color: #333;
+  }
+  .hot h3 {
+    display: inline-block;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-right: 10px;
+    background-color: #222;
+    padding: 0 8px 1px;
+    text-transform: uppercase;
+    color: #ccc;
+  } 
+  .vertical-line {
+    width: 1px; /* Độ rộng của đường kẻ */
+    height: 100px; /* Chiều cao của đường kẻ */
+    background-color: black; /* Màu sắc của đường kẻ */
+    margin: 50px; /* Khoảng cách từ các phần tử xung quanh */
+}
+.anhhot img {
+    width: 770px;
+    height: 335px;
+}
+  .trangchu > h2 {
+    text-align: center;
+  }
+  .trangchu > p{
+    text-align: center;
+  }
+  /*-----------------------------------APP--------------------------------------*/
+.app-container {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    align-items: center;
+    padding: 50px 0 50px 0;
+  }
+  .app-container p {
+    line-height: 20px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
+  .img-app img {
+    height: 50px;
+    cursor: pointer;
+  }
+  /*-----------------------------------FOOT--------------------------------------*/
+  .footer {
+    text-align: center;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 70px;
+  }
+  .footer-top img {
+    height: 50px;
+  }
+  .footer-top li {
+    padding: 0 12px;
+    position: relative;
+  }
+  .footer-top li::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 80%;
+    background: darkblue;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .footer-top li:last-child::after {
+    display: none;
+  }
+  .footer-top li:last-child a {
+    margin-right: 10px;
+    color: cyan;
+  }
+  .footer-center {
+    text-align: center;
+  }
+  .footer-bottom {
+    margin: 20px 0;
+    text-align: center;
+  }
+  

@@ -1,0 +1,83 @@
+/*-------------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica, Arial, sans-serif";
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  background-image: url(./img/star.jpg);
+}
+/*-----------------------------------HEADER--------------------------------------*/
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px 50px;
+  height: 75px;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 1);
+}
+header.sticky {
+  background: rgba(255, 255, 255, 0.7);
+}
+header:hover {
+  background: rgba(255, 255, 255, 1);
+}
+/*------------------------------------LOGO-------------------------------------*/
+.logoct {
+  flex: 1;
+  max-width: 100px;
+  height: auto;
+}
+/*---------------------------------------MENU----------------------------------*/
+.menu {
+  flex: 3;
+  display: flex;
+}
+.menu > li {
+  padding: 10px 15px;
+  position: relative;
+}
+
+.menu > li > a {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  line-height: 20px;
+}
+/*---------------------------------------LOGO----------------------------------*/
+.logo-container {
+  position: relative;
+}
+.logo-row1 img:hover {
+  background: rgba(255, 255, 255, 1);
+}
+.logo-row2 img:hover {
+  background: rgba(255, 255, 255, 1);
+}
+.logo-row1 img {
+  margin: 50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+.logo-row2 img {
+  margin: 50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}

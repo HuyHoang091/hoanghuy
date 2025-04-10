@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Confirmation</title>
+    <style>
+        .qr-container {
+            display: none;
+            text-align: center;
+            padding-top: 20px;
+        }
+        #qrCode {
+            margin: 20px auto;
+        }
+    </style>
+    
+</head>
+<body>
+    <form id="qr" method="post" action="http://localhost/hoanghuy/qr-confirmation-project/public/verify-card.php">
+        <div style="height: 50px;">
+            <div onclick="huy()" style="float: right">
+                        <div style="font-size: 27px;
+                        cursor: pointer;
+                        position: fixed; right: 10px;
+                        width: 30px;
+                        background: #aaaaaa;
+                        border-radius: 10px;text-align: center;">↵</div>
+        </div>
+        <input type="hidden" name="tien" id="sotien" value="">
+        <input type="hidden" name="cardholderName" id="ten" value="">
+        <input type="hidden" name="cardExpiryDate" id="ngay" value="">
+        <input type="hidden" name="cardNumber" id="sothe" value="">
+        <input type="hidden" name="cardCcv" id="ccv" value="">
+        <input type="hidden" name="nganhang" id="nganhang" value="">
+        <!-- <div style="margin: 0px 15%;">
+            <div style="text-align: center; padding-top: 15px;">Phương thức thanh toán</div>
+            <div><hr/></div>
+            <div style="margin-left: 10px;">THẺ ATM VÀ TÀI KHOẢN NGÂN HÀNG <span id="+" style="float: right;
+            margin-right: 15px;
+            font-size: 18px;
+            cursor: pointer;">+</span></div>
+            <div><hr/></div>
+            <div id="master" style="display: none;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        gap: 20px;
+                        padding: 5px 10px;
+                        ">
+                <div id="master" style="padding: 5px 10px;border: groove;cursor: pointer;">
+                    <img style="width: 100%;" src="http://localhost/hoanghuy/Deadline/Public/Pictures/mastercard.png" alt="">
+                </div>
+                <div id="visa" style="padding: 5px 10px;border: groove;align-content: center;cursor: pointer;">
+                    <img style="width: 100%;" src="http://localhost/hoanghuy/Deadline/Public/Pictures/visa.png" alt="">
+                </div>
+            </div>
+            <div id="ttt" style="display: none;">
+                <hr/>
+                <div style="margin-left: 10px;">
+                    THÔNG TIN THẺ
+                </div>
+                <hr/>
+                <div style="padding: 5px 10px;">
+                    <label for="">Tên chủ thẻ:</label>
+                    <input name="cardholderName" style="padding: 5px 10px; margin-left: 5px;" type="text" name="" id="" placeholder="Nguyen Van A">
+                    <label style="margin-left: 5px;" for="">Ngày PH:</label>
+                    <input name="cardExpiryDate" style="padding: 5px 10px; margin-left: 5px; width: 50px;" type="text" name="" id="" placeholder="dd-mm">
+                </div>
+                <div style="padding: 5px 10px;">
+                    <label for="">Số thẻ:</label>
+                    <input name="cardNumber" style="padding: 5px 10px; margin-left: 40px;" type="text" name="" id="" placeholder="0123456789">
+                    <label style="margin-left: 5px;" for="">Ccv:</label>
+                    <input name="cardCcv" style="padding: 5px 10px; margin-left: 38px; width: 50px;" type="text" name="" id="" placeholder="000">
+                </div>
+                <div>
+                    <button type="submit" style="padding: 8px 28px;
+                    float: right;
+                    margin: 10px 10px 15px 0px;
+                    background: #F79321;
+                    border: none;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;">Thanh toán</button>
+                </div>
+            </div>
+        </div> -->
+        <div class="qr-container" id="qrContainer">
+            <canvas id="qrCode"></canvas>
+            <p>Vui lòng quét mã để xác nhận.</p>
+        </div>
+    </form>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrContainer = document.getElementById('qrContainer');
+            const qrCodeElement = document.getElementById('qrCode');
+
+            qrContainer.style.display = 'block';
+
+            const qrData = 'http://192.168.43.140:3000/confirm';
+            QRCode.toCanvas(qrCodeElement, qrData, function(error) {
+                if (error) console.error(error);
+                console.log('QR Code generated!');
+            });
+            const socket = io();
+
+            socket.on('confirmed', function() {
+                qrContainer.style.display = 'none';
+                document.getElementById('qr').submit();
+            });
+        });
+        function huy(){
+            qrContainer.style.display = 'none';
+            window.parent.postMessage('qrHuy', '*');
+        }
+    </script>
+    <script>
+        // Function to get query parameter by name
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Set the message from query parameter
+        document.getElementById('sotien').value = getQueryParam('sotien');
+        document.getElementById('ten').value = getQueryParam('ten');
+        document.getElementById('ngay').value = getQueryParam('ngay');
+        document.getElementById('sothe').value = getQueryParam('sothe');
+        document.getElementById('ccv').value = getQueryParam('ccv');
+        document.getElementById('nganhang').value = getQueryParam('nganhang');
+    </script>
+</body>
+</html>
