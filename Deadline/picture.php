@@ -34,7 +34,7 @@
         color: white;
         border-radius: 10px;text-align: center;">×</div>
     </div>
-<img style="height: 100px; width: 150px;" src="http://localhost/hoanghuy/Deadline/Public/Pictures/img/logoct.png
+<img style="height: 100px; width: 150px;" src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png
 " alt="">
 <form action="upload.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>

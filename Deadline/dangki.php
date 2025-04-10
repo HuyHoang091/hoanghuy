@@ -18,7 +18,7 @@
         $sdt = $_POST['sdt'];
         $email = $_POST['email'];
         $kieutk = 'khách hàng';
-        $picture = 'http://localhost/hoanghuy/Deadline/Public/Pictures/img/account.png';
+        $picture = '/hoanghuy/Deadline/Public/Pictures/img/account.png';
     
         $stmt = $conn->prepare("SELECT * FROM account WHERE username_Account = ?");
         $stmt->bind_param("s", $taikhoan);
@@ -28,7 +28,7 @@
         if ($result->num_rows > 0) {
             echo "<script>
                 alert('Tài khoản đã tồn tại. Vui lòng chọn tài khoản khác.');
-                window.location.href = 'http://localhost/hoanghuy/Deadline/dangki.php';
+                window.location.href = '/hoanghuy/Deadline/dangki.php';
             </script>";
         } else {
             $stmt = $conn->prepare("INSERT INTO account (display_Account, password_Account, type_Account, username_Account, gender_Account, phone_Account, gmail_Account, picture_Account) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -37,7 +37,7 @@
             if ($stmt->execute()) {
                 echo "<script>
                 alert('Đăng ký thành công!');
-                window.location.href = 'http://localhost/hoanghuy/Deadline/dangnhap.php';
+                window.location.href = '/hoanghuy/Deadline/dangnhap.php';
                 </script>";
             } else {
                 echo "<script>alert('Có lỗi xảy ra khi thêm tài khoản');</script>";
@@ -142,10 +142,10 @@
                             text-align: center;
                             top: 4px;
                             right: 4px;">
-                <a style="text-decoration: none; color: black;" href="http://localhost/hoanghuy/Deadline/dangnhap.php">↵</a></div>
+                <a style="text-decoration: none; color: black;" href="/hoanghuy/Deadline/dangnhap.php">↵</a></div>
             </div>
             <div>
-                <img style="width: 120px;" src="http://localhost/hoanghuy/Deadline/Public/Pictures/img/logoct.png" alt="">
+                <img style="width: 120px;" src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png" alt="">
             </div>
             <h1>Đăng ký</h1>
             <p>Thủ tục nhanh gọn - hỗ trợ chuyên nghiệp và tận tâm <span class="ratings">Đăng ký ngay</span></p>

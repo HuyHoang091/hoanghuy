@@ -33,7 +33,7 @@
             </script>";
         } else {
             echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng!');
-            window.location.href = 'http://localhost/hoanghuy/Deadline/dangnhap.php';</script>";
+            window.location.href = '/hoanghuy/Deadline/dangnhap.php';</script>";
         }
     }
 ?>
@@ -67,7 +67,7 @@
         <form method="post" action="">
             
             <div style="margin-bottom: 40px">
-                <img style="width: 120px;" src="http://localhost/hoanghuy/Deadline/Public/Pictures/img/logoct.png" alt="">
+                <img style="width: 120px;" src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png" alt="">
             </div>
             <div>
             <input type="text" name="txtUser" class="dd1" placeholder="Nhập tài khoản">
@@ -91,7 +91,7 @@
             <br>
             <div>
                 <span>Chưa có tài khoản?</span>
-                <span><a style="text-decoration: none; color: #9fedf9;" href="http://localhost/hoanghuy/Deadline/dangki.php">
+                <span><a style="text-decoration: none; color: #9fedf9;" href="/hoanghuy/Deadline/dangki.php">
                     Đăng ký</a>
                 </span>
                 <span>ngay</span>

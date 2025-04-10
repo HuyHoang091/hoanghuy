@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>alert('Password updated successfully.');
-        window.location.href = 'http://localhost/hoanghuy/Deadline/taikhoan/Get_data';</script>";
+        window.location.href = '/hoanghuy/Deadline/taikhoan/Get_data';</script>";
     } else {
         echo "Error updating pass: " . $conn->error;
     }
