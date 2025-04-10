@@ -29,7 +29,7 @@
                 'gmail'=> $user['gmail_Account']
             ];
             echo "<script>
-                window.parent.postMessage({functionName: 'dangnhap', user: {id: " . json_encode($user['id']) . ", taikhoan: " . json_encode($user['display_Account']) . ", quyen: " . json_encode($user['type_Account']) . ", username: " . json_encode($user['username_Account']) . ", matkhau: " . json_encode($user['password_Account']) . ", gioitinh: " . json_encode($user['gender_Account']) . ", sdt: " . json_encode($user['phone_Account']) . ", gmail: " . json_encode($user['gmail_Account']) . "}}, '/hoanghuy/Deadline/');
+                window.parent.postMessage({functionName: 'dangnhap', user: {id: " . json_encode($user['id']) . ", taikhoan: " . json_encode($user['display_Account']) . ", quyen: " . json_encode($user['type_Account']) . ", username: " . json_encode($user['username_Account']) . ", matkhau: " . json_encode($user['password_Account']) . ", gioitinh: " . json_encode($user['gender_Account']) . ", sdt: " . json_encode($user['phone_Account']) . ", gmail: " . json_encode($user['gmail_Account']) . "}}, '*');
             </script>";
         } else {
             echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng!');
