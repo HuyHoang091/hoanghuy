@@ -14,22 +14,24 @@
         $query = $conn->prepare('SELECT * FROM account WHERE username_Account = ?');
         $query->bind_param('s', $taikhoan);
         $query->execute();
-        $result = $query->get_result();
-        $user = $result->fetch_assoc();
+        
+        $query->store_result();
+        $query->bind_result($id, $display_Account, $type_Account, $username_Account, $password_Account, $gender_Account, $phone_Account, $gmail_Account);
 
-        if ($user && $matkhau == $user['password_Account']) {
+        // Fetch data if exists
+        if ($query->fetch() && $matkhau == $password_Account) {
             $_SESSION['user'] = [
-                'id' => $user['id'],
-                'taikhoan' => $user['display_Account'],
-                'quyen' => $user['type_Account'],
-                'username'=> $user['username_Account'],
-                'matkhau'=> $user['password_Account'],
-                'gioitinh'=> $user['gender_Account'],
-                'sdt'=> $user['phone_Account'],
-                'gmail'=> $user['gmail_Account']
+                'id' => $id,
+                'taikhoan' => $display_Account,
+                'quyen' => $type_Account,
+                'username'=> $username_Account,
+                'matkhau'=> $password_Account,
+                'gioitinh'=> $gender_Account,
+                'sdt'=> $phone_Account,
+                'gmail'=> $gmail_Account
             ];
             echo "<script>
-                window.parent.postMessage({functionName: 'dangnhap', user: {id: " . json_encode($user['id']) . ", taikhoan: " . json_encode($user['display_Account']) . ", quyen: " . json_encode($user['type_Account']) . ", username: " . json_encode($user['username_Account']) . ", matkhau: " . json_encode($user['password_Account']) . ", gioitinh: " . json_encode($user['gender_Account']) . ", sdt: " . json_encode($user['phone_Account']) . ", gmail: " . json_encode($user['gmail_Account']) . "}}, '*');
+                window.parent.postMessage({functionName: 'dangnhap', user: {id: " . json_encode($id) . ", taikhoan: " . json_encode($display_Account) . ", quyen: " . json_encode($type_Account) . ", username: " . json_encode($username_Account) . ", matkhau: " . json_encode($password_Account) . ", gioitinh: " . json_encode($gender_Account) . ", sdt: " . json_encode($phone_Account) . ", gmail: " . json_encode($gmail_Account) . "}}, '*');
             </script>";
         } else {
             echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng!');
