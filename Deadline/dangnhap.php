@@ -11,7 +11,7 @@
         $db = new connectDB();
         $conn = $db->getConnection();
 
-        $query = $conn->prepare('SELECT * FROM account WHERE username_Account = ?');
+        $query = $conn->prepare('SELECT id,display_Account,password_Account,type_Account,username_Account,gender_Account,phone_Account,gmail_Account FROM account WHERE username_Account = ?');
         $query->bind_param('s', $taikhoan);
         $query->execute();
 
