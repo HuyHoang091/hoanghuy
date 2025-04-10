@@ -494,7 +494,7 @@
             </div>
             <?php
                 if(isset($data['gdut'])&&isset($data['hangbayloc'])){
-                    load2($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be'],null,$data['hangbayloc'], $data['hangcb']);
+                    load2($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be'],$data['gdut'],$data['hangbayloc'], $data['hangcb']);
                 }
                 else{
                     load2($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be']);
@@ -562,7 +562,7 @@
             </div>
             <?php
                 if(isset($data['gvut'])&&isset($data['hangbayloc1'])){
-                    load3($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be'],null,$data['hangbayloc1'], $data['hangcb']);
+                    load3($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be'],$data['gvut'],$data['hangbayloc1'], $data['hangcb']);
                 }
                 else{
                     load3($data['tu'], $data['den'], $data['lon'], $soTreEm = $data['tre'], $data['be']);
@@ -1167,7 +1167,7 @@
 
         // Hàm tính giá vé dựa trên giờ đi, hạng vé, loại hành khách và khoảng cách
         function calculateTicketPrice($basePrice, $departureTime, $class, $passengerType) {
-            $departureDateTime = new DateTime('2025-04-10 ' . $departureTime, new DateTimeZone('Asia/Ho_Chi_Minh'));
+            $departureDateTime = new DateTime($departureTime, new DateTimeZone('Asia/Ho_Chi_Minh'));
             $hour = $departureDateTime->format('H');
 
             // Tăng giảm giá vé theo giờ đi
@@ -1394,7 +1394,6 @@
     </script>
     <!----load---->
     <?php
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
         function load2($diemDi, $diemDen, $soNguoiLon, $soTreEm, $soTreNho, $gdloc = null, $hbloc = null, $hangcb = null){
             require_once 'MVC/Core/connectDB1.php';
             $db = new connectDB1();
@@ -1413,7 +1412,7 @@
                 while ($stmt->fetch()) {
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime('2025-04-10 ' . $gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
+                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
@@ -1602,7 +1601,7 @@
                     $gioDi = $row["GioDi"];
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime('2025-04-10 ' . $gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
+                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
