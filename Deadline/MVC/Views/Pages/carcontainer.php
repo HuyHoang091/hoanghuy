@@ -1359,7 +1359,7 @@
 
         // Hàm tính giá vé dựa trên giờ đi, hạng vé, loại hành khách và khoảng cách
         function calculateTicketPrice($basePrice, $departureTime, $class, $passengerType) {
-            $departureDateTime = new DateTime($departureTime);
+            $departureDateTime = new DateTime($departureTime, new DateTimeZone('Asia/Ho_Chi_Minh'));
             $hour = $departureDateTime->format('H');
 
             // Tăng giảm giá vé theo giờ đi
@@ -1586,7 +1586,6 @@
     </script>
     <!----load---->
     <?php
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
         function load2($diemDi, $diemDen, $soNguoiLon, $soTreEm, $soTreNho, $gdloc = null, $hbloc = null, $hangcb = null){
             require_once 'MVC/Core/connectDB1.php';
             $db = new connectDB1();
@@ -1605,7 +1604,7 @@
                 while ($stmt->fetch()) {
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime($gioDi);
+                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
@@ -1794,7 +1793,7 @@
                     $gioDi = $row["GioDi"];
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
-                    $gioDiDateTime = new DateTime($gioDi);
+                    $gioDiDateTime = new DateTime($gioDi, new DateTimeZone('Asia/Ho_Chi_Minh'));
                     while ($gioDiDateTime->format('H') != 0 && $gioDiDateTime->format('H') != 1) {
                         // Tính toán giá vé dựa trên số lượng hành khách, giờ đi, hạng vé và khoảng cách
                         $giaCuoiCung = calculateTotalPrice($giaCoBan, $gioDiDateTime->format('Y-m-d H:i:s'), $hang, $soNguoiLon, $soTreEm, $soTreNho);
