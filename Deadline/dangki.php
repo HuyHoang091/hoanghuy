@@ -23,9 +23,9 @@
         $stmt = $conn->prepare("SELECT * FROM account WHERE username_Account = ?");
         $stmt->bind_param("s", $taikhoan);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->store_result();
 
-        if ($result->num_rows > 0) {
+        if ($stmt->num_rows > 0) {
             echo "<script>
                 alert('Tài khoản đã tồn tại. Vui lòng chọn tài khoản khác.');
                 window.location.href = '/hoanghuy/Deadline/dangki.php';
