@@ -153,15 +153,15 @@
                 <div class="form-grid">
                     <div class="input-group" style="font-size: 14px;">
                         <label>Tên đăng nhập</label>
-                        <input type="text" name="tdn" placeholder="Tên đăng nhập">
+                        <input required type="text" name="tdn" placeholder="Tên đăng nhập">
                     </div>
                     <div class="input-group" style="font-size: 14px;">
                         <label>Tài khoản</label>
-                        <input type="text" name="tk" placeholder="Tài khoản">
+                        <input required type="text" name="tk" placeholder="Tài khoản">
                     </div>
                     <div class="input-group" style="font-size: 14px;">
                         <label>Mật khẩu</label>
-                        <input type="password" name="mk" placeholder="Mật khẩu">
+                        <input required type="password" name="mk" placeholder="Mật khẩu">
                     </div>
                     <div class="input-group" style="font-size: 14px;">
                         <label>Giới tính</label>
@@ -172,11 +172,11 @@
                     </div>
                     <div class="input-group" style="font-size: 14px;">
                         <label>Số điện thoại</label>
-                        <input type="text" name="sdt" placeholder="Số điện thoại">
+                        <input required type="text" name="sdt" placeholder="Số điện thoại">
                     </div>
                     <div class="input-group" style="font-size: 14px;">
                         <label>Email</label>
-                        <input type="text" name="email" placeholder="Email">
+                        <input required type="text" name="email" placeholder="Email">
                     </div>
                 </div>
                 <button type="submit" class="btn-search">Đăng ký</button>

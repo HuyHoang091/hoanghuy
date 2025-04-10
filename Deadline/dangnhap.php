@@ -72,11 +72,11 @@
                 <img style="width: 120px;" src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png" alt="">
             </div>
             <div>
-            <input type="text" name="txtUser" class="dd1" placeholder="Nhập tài khoản">
+            <input required type="text" name="txtUser" class="dd1" placeholder="Nhập tài khoản">
             </div>
             <br>
             <div>
-            <input type="password" name="txtPass" class="dd1" placeholder="Nhập mật khẩu">
+            <input required type="password" name="txtPass" class="dd1" placeholder="Nhập mật khẩu">
             </div>
             <br>
             <div style="align-content: center;">

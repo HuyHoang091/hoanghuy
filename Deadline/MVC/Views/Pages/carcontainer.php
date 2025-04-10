@@ -1592,17 +1592,16 @@
             $conn = $db->getConnection();
             
             // Truy vấn dữ liệu từ bảng giave với điều kiện DiemDi và DiemDen trùng khớp
-            $sql = "SELECT DiemDi, DiemDen, Hang, HangBay, Gia, GioDi FROM giave WHERE DiemDi='$diemDi' AND DiemDen='$diemDen'";
-            $result = $conn->query($sql);
+            $sql = "SELECT DiemDi, DiemDen, Hang, HangBay, Gia, GioDi FROM giave WHERE DiemDi=? AND DiemDen=?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $diemDi, $diemDen);
+            $stmt->execute();
+            $stmt->store_result();
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $diemDiFromSQL = $row["DiemDi"];
-                    $diemDenFromSQL = $row["DiemDen"];
-                    $hang = $row["Hang"];
-                    $hangbay = $row["HangBay"];
-                    $giaCoBan = $row["Gia"];
-                    $gioDi = $row["GioDi"];
+            $stmt->bind_result($diemDiFromSQL, $diemDenFromSQL, $hang, $hangbay, $giaCoBan, $gioDi);
+
+            if ($stmt->num_rows > 0) {
+                while ($stmt->fetch()) {
 
                     // Lặp để in nhiều thẻ cách nhau 2 tiếng cho đến 23 giờ
                     $gioDiDateTime = new DateTime($gioDi);
