@@ -278,7 +278,7 @@
                                         <div class="thesb">Sân bay nội địa phổ biến</div>
                                     </div>
                                     <?php
-                                    require_once 'MVC/Core/connectDB.php';
+                                    require_once 'MVC/Core/connectDB1.php';
                                     $db = new connectDB1();
                                     $conn = $db->getConnection();
 
