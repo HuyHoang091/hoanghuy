@@ -161,7 +161,8 @@
                     $sql = "SELECT tt.*, tk.*
                             FROM thongtinhanhkhach tt
                             JOIN thongtinlienhe tk ON tt.IDLienHe = tk.ID
-                            WHERE tk.TaiKhoan = '$taikhoan'";
+                            WHERE tk.TaiKhoan = '$taikhoan'
+                            ORDER BY tt.ID DESC";
                     $result = $conn->query($sql);
 
                     $flight_infos = array(
