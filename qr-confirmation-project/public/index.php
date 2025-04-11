@@ -135,10 +135,10 @@ $data = isset($_GET['data']) ? $_GET['data'] : '';
                         ">
 
             <div id="mastercard" class="card">
-                <img src="http://localhost/hoanghuy/Deadline/Public/Pictures/mastercard.png" alt="Mastercard">
+                <img src="/hoanghuy/Deadline/Public/Pictures/mastercard.png" alt="Mastercard">
             </div>
             <div id="visa" style="align-content: center;" class="card">
-                <img src="http://localhost/hoanghuy/Deadline/Public/Pictures/visa.png" alt="Visa">
+                <img src="/hoanghuy/Deadline/Public/Pictures/visa.png" alt="Visa">
             </div>
 
             </div>
