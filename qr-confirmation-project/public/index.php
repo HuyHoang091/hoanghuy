@@ -30,9 +30,9 @@
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssss", $cardholderName, $cardNumber, $month, $day, $cardCcv);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->store_result();
 
-        if ($result->num_rows > 0) {
+        if ($stmt->num_rows > 0) {
             echo "<script>
                 setTimeout(function() {
                     showQRConfirmation('" . $cardholderName . "', '" . $cardExpiryDate . "', '" . $cardNumber . "', '" . $cardCcv . "', '" . $nganhang . "');
