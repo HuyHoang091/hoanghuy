@@ -229,7 +229,7 @@
             </div>
         </div>
         <div style="text-align: center;">
-            <button class="btnsua" onclick="window.location.href='http://localhost/hoanghuy/Deadline/taikhoan/sua'">Sửa <i class="fas fa-pencil-alt"></i></button>
+            <button class="btnsua" onclick="window.location.href='/hoanghuy/Deadline/taikhoan/sua'">Sửa <i class="fas fa-pencil-alt"></i></button>
         </div>
     </div>
     <script>
@@ -256,7 +256,7 @@
 
         function show() {
             document.getElementById("iframeContainer").style.display = "block";
-            document.getElementById("iframe").src = "http://localhost/hoanghuy/Deadline/picture.php"; 
+            document.getElementById("iframe").src = "/hoanghuy/Deadline/picture.php"; 
         }
 
         function editFunction() {
@@ -286,7 +286,7 @@
             if (nickname != null && nickname != "") {
                 var form = document.createElement("form");
                 form.method = "POST";
-                form.action = "http://localhost/hoanghuy/Deadline/update_nickname.php";
+                form.action = "/hoanghuy/Deadline/update_nickname.php";
 
                 var input = document.createElement("input");
                 input.type = "hidden";
@@ -303,7 +303,7 @@
             if (passmoi != null && passmoi != "") {
                 var form = document.createElement("form");
                 form.method = "POST";
-                form.action = "http://localhost/hoanghuy/Deadline/update_pass.php";
+                form.action = "/hoanghuy/Deadline/update_pass.php";
 
                 var input = document.createElement("input");
                 input.type = "hidden";

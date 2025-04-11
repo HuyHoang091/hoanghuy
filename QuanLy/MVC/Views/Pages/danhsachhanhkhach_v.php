@@ -83,9 +83,9 @@
                         echo "<td class='detail-table'>";
                         echo "<button type='button' class='btn btn-info btn-sm' onclick='fetchDetails1(" . $row['ID'] . ")'>Xem chi tiết</button> ";
                         echo "<a class='btn btn-outline-primary' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachhanhkhach/suattlh/" . $row['ID'] . "'>Sửa</a> ";
+                                href='/hoanghuy/QuanLy/Danhsachhanhkhach/suattlh/" . $row['ID'] . "'>Sửa</a> ";
                         echo "<a class='btn btn-outline-danger' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachhanhkhach/xoattlh/" . $row['ID'] . "'>Xóa</a>";
+                                href='/hoanghuy/QuanLy/Danhsachhanhkhach/xoattlh/" . $row['ID'] . "'>Xóa</a>";
                         echo "</td>";
                         echo "</tr>";
 
@@ -129,9 +129,9 @@
                             echo "<td>" . $row_details['TrangThai'] . "</td>";
                             echo "<td class='ttlh'>";
                             echo "<a class='btn btn-outline-primary' 
-                                    href='http://localhost/hoanghuy/QuanLy/Danhsachhanhkhach/suatthk/" . $row_details['ID'] . "'>Sửa</a> ";
+                                    href='/hoanghuy/QuanLy/Danhsachhanhkhach/suatthk/" . $row_details['ID'] . "'>Sửa</a> ";
                             echo "<a class='btn btn-outline-danger' 
-                                    href='http://localhost/hoanghuy/QuanLy/Danhsachhanhkhach/xoatthk/" . $row_details['ID'] . "'>Xóa</a>";
+                                    href='/hoanghuy/QuanLy/Danhsachhanhkhach/xoatthk/" . $row_details['ID'] . "'>Xóa</a>";
                             echo "</td>";
                             echo "</tr>";
                         }

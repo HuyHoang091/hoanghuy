@@ -68,7 +68,7 @@
     </style>
 </head>
 <body>
-    <form method="post" action="http://localhost/hoanghuy/Deadline/taikhoan/suadl">
+    <form method="post" action="/hoanghuy/Deadline/taikhoan/suadl">
         <div class="phan">
             <div style="padding-bottom: 5px;"><h1 style=" font-size: 16px; margin: 0px;">Thông tin cá nhân</h1></div>
             <div><hr/></div>

@@ -33,7 +33,7 @@
             <input type="text" style="padding: 4px 10px; border-radius: 5px;" name="txtDDi" value="<?php if(isset($data['ddi'])){echo $data['ddi'];} ?>" placeholder="Tìm kiếm theo điểm đi...">
             <input type="text" style="padding: 4px 10px; border-radius: 5px;" name="txtDDen" value="<?php if(isset($data['dde'])){echo $data['dde'];} ?>" placeholder="Tìm kiếm theo điểm đến...">
             <button type="submit" class="btn btn-primary" name="btnTimkiem">Tìm kiếm</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost/hoanghuy/QuanLy/Danhsachtgbay/them'">Thêm</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/hoanghuy/QuanLy/Danhsachtgbay/them'">Thêm</button>
             <button type="button" class="btn btn-primary" onclick="Excel()">Xuất Excel</button>
         </div>
         <table id="mainTable" style="width: 1140px;" class="table table-striped table-bordered">
@@ -57,9 +57,9 @@
                         echo "<td>" . $row['ThoiGianBay'] . "</td>";
                         echo "<td class='detail-table'>";
                         echo "<a class='btn btn-outline-primary' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachtgbay/sua/" . $row['ID'] . "'>Sửa</a> ";
+                                href='/hoanghuy/QuanLy/Danhsachtgbay/sua/" . $row['ID'] . "'>Sửa</a> ";
                         echo "<a class='btn btn-outline-danger' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachtgbay/xoa/" . $row['ID'] . "'>Xóa</a>";
+                                href='/hoanghuy/QuanLy/Danhsachtgbay/xoa/" . $row['ID'] . "'>Xóa</a>";
                         echo "</td>";
                         echo "</tr>";
                     }

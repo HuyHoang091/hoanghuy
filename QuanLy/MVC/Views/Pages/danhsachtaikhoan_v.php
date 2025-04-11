@@ -33,7 +33,7 @@
             
             <input type="text" style="padding: 4px 10px; border-radius: 5px;" name="txtDDi" value="<?php if(isset($data['ddi'])){echo $data['ddi'];} ?>" placeholder="Tìm kiếm theo tên người dùng...">
             <button type="submit" class="btn btn-primary" name="btnTimkiem">Tìm kiếm</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost/hoanghuy/QuanLy/Danhsachuser/them'">Thêm</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/hoanghuy/QuanLy/Danhsachuser/them'">Thêm</button>
             <button type="button" class="btn btn-primary" onclick="Excel()">Xuất Excel</button>
         </div>
         <table id="mainTable" style="width: 1140px;" class="table table-striped table-bordered">
@@ -65,9 +65,9 @@
                         echo "<td>" . $row['gmail_Account'] . "</td>";
                         echo "<td class='detail-table'>";
                         echo "<a class='btn btn-outline-primary' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachuser/sua/" . $row['id'] . "'>Sửa</a> ";
+                                href='/hoanghuy/QuanLy/Danhsachuser/sua/" . $row['id'] . "'>Sửa</a> ";
                         echo "<a class='btn btn-outline-danger' 
-                                href='http://localhost/hoanghuy/QuanLy/Danhsachuser/xoa/" . $row['id'] . "'>Xóa</a>";
+                                href='/hoanghuy/QuanLy/Danhsachuser/xoa/" . $row['id'] . "'>Xóa</a>";
                         echo "</td>";
                         echo "</tr>";
                     }

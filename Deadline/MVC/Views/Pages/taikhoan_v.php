@@ -124,11 +124,12 @@
                     $stmt = $conn->prepare("SELECT picture_Account FROM account WHERE username_Account = ?");
                     $stmt->bind_param("s", $ss);
                     $stmt->execute();
-                    $result = $stmt->get_result();
+                    $stmt->store_result();
 
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $tinh = htmlspecialchars($row["picture_Account"], ENT_QUOTES, 'UTF-8');
+                    if ($stmt->num_rows > 0) {
+                        $stmt->bind_result($picture);
+                        while ($stmt->fetch()) {
+                            $tinh = htmlspecialchars($picture, ENT_QUOTES, 'UTF-8');
                             echo "<img style='width: 105px;border-radius: 50%;overflow: hidden;border:groove;' src='$tinh' alt=''>";
                         }
                     } else {
