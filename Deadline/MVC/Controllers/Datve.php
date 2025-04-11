@@ -316,7 +316,7 @@ class Datve extends controller{
                     }
                 }
             }
-            echo '<script>alert("Thanh toán thành công!"); window.location.href = "http://localhost/hoanghuy/Deadline/";</script>';
+            echo '<script>alert("Thanh toán thành công!"); window.location.href = "/hoanghuy/Deadline/";</script>';
         }
         else{
             echo "Error inserting record.";
