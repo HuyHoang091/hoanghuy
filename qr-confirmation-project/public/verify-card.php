@@ -21,15 +21,15 @@
         $transactionAmount = $_POST['tien'];
         $nganhang = $_POST['nganhang'];
     
-        $sql = "SELECT * FROM ". $nganhang ." WHERE TenChuThe = ? AND SoThe = ? AND Ccv = ?";
+        $sql = "SELECT SoDu FROM ". $nganhang ." WHERE TenChuThe = ? AND SoThe = ? AND Ccv = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sss", $cardholderName, $cardNumber, $cardCcv);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt->store_result();
     
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $currentBalance = $row['SoDu'];
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($currentBalance);
+            $stmt->fetch();
     
             if ($currentBalance >= $transactionAmount) {
                 $newBalance = $currentBalance - $transactionAmount;
