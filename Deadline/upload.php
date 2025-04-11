@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
                 $username = $_SESSION['user']['username'];
 
                 // Cập nhật đường dẫn ảnh vào bảng account
-                $sql_update = "UPDATE account SET picture_Account = 'http://192.168.10.185/hoanghuy/Deadline/$target_file' WHERE username_Account = '$username'";
+                $sql_update = "UPDATE account SET picture_Account = '/hoanghuy/Deadline/$target_file' WHERE username_Account = '$username'";
 
                 if ($conn->query($sql_update) === TRUE) {
                     echo "The file has been uploaded and path updated in database for user: $username.<br>";
