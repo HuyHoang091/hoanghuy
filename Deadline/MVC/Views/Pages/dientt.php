@@ -290,7 +290,7 @@
         function showQRConfirmation() {
             if(checkhk()){
                 document.getElementById("iframeContainer").style.display = "block";
-                document.getElementById("iframe").src = "/hoanghuy/qr-confirmation-project/public/index.php?data=<?php echo urlencode($data['giavedi'] + $data['giaveve']); ?>"; 
+                document.getElementById("iframe").src = "/hoanghuy/qr-access/public/index.php?data=<?php echo urlencode($data['giavedi'] + $data['giaveve']); ?>"; 
             }
             else{
                 alert("Vui lòng nhập đầy đủ thông tin!");
