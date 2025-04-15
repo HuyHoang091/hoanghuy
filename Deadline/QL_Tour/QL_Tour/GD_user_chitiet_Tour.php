@@ -34,6 +34,12 @@ if ($conn) {
 
     // 2. Lấy lịch trình schedule
     $stmt_schedule = $conn->prepare("SELECT id, id_Tour, day_start, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
+    $stmt_schedule = $conn->prepare($sql);
+
+if ($stmt_schedule === false) {
+    echo "Error preparing statement: " . $conn->error;
+    exit();
+}
     $stmt_schedule->bind_param("i", $Id_Tour);
 
     if ($stmt_schedule->execute()) {
