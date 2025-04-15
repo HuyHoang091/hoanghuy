@@ -5,13 +5,26 @@ require_once 'ketnoi.php';
 $Id_Tour = $_GET['Id_Tour'];
 
 if ($conn) {
-    // Lấy thông tin tour
-    $stmt = $conn->prepare("SELECT * FROM Tour WHERE id = ?");
+    // 1. Lấy thông tin tour
+    $stmt = $conn->prepare("SELECT id, name_Tour, intro_Tour, picture_Tour, adultfee, childfee, buycount FROM tour WHERE id = ?");
     $stmt->bind_param("i", $Id_Tour);
-    
+
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+        $stmt->bind_result($id, $name_Tour, $intro_Tour, $picture_Tour, $adultfee, $childfee, $buycount);
+        if ($stmt->fetch()) {
+            $row = array(
+                'id' => $id,
+                'name_Tour' => $name_Tour,
+                'intro_Tour' => $intro_Tour,
+                'picture_Tour' => $picture_Tour,
+                'adultfee' => $adultfee,
+                'childfee' => $childfee,
+                'buycount' => $buycount
+            );
+        } else {
+            echo "No tour found.";
+            exit();
+        }
     } else {
         echo "Error executing query: " . $stmt->error;
         exit();
@@ -19,52 +32,59 @@ if ($conn) {
 
     $stmt->close();
 
-    // Truy vấn để lấy thông tin lịch trình từ bảng Schedule dựa trên id_Tour và current_people < max_people
-    $stmt_schedule = $conn->prepare("SELECT * FROM Schedule WHERE id_Tour = ? AND current_people < max_people");
+    // 2. Lấy lịch trình schedule
+    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, day_start, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
     $stmt_schedule->bind_param("i", $Id_Tour);
-    
+
     if ($stmt_schedule->execute()) {
-        $result_schedule = $stmt_schedule->get_result();
-        
-        // Lấy dữ liệu và lưu vào mảng $schedules
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $day_start, $max_people, $current_people);
+
         $schedules = array();
-        while ($row_schedule = $result_schedule->fetch_assoc()) {
-            $schedules[] = $row_schedule;
+        while ($stmt_schedule->fetch()) {
+            $schedules[] = array(
+                'id' => $id_s,
+                'id_Tour' => $id_Tour_s,
+                'day_start' => $day_start,
+                'max_people' => $max_people,
+                'current_people' => $current_people
+            );
         }
     } else {
-        echo "Error executing query: " . $stmt_schedule->error;
+        echo "Error executing schedule query: " . $stmt_schedule->error;
         exit();
     }
 
     $stmt_schedule->close();
 
-     // Tìm kiếm bài viết theo địa điểm
-     $search_results = array();
-     if (!empty($search_query)) {
-         $stmt_search = $conn->prepare("SELECT title_media_Post, picture_media_Post FROM media_Post WHERE city_media_Post LIKE ? OR country_media_Post LIKE ?");
-         $search_param = "%".$search_query."%";
-         $stmt_search->bind_param("ss", $search_param, $search_param);
-         
-         if ($stmt_search->execute()) {
-             $result_search = $stmt_search->get_result();
-             while ($row_search = $result_search->fetch_assoc()) {
-                 $search_results[] = $row_search;
-             }
-         } else {
-             echo "Error executing query: " . $stmt_search->error;
-             exit();
-         }
- 
-         $stmt_search->close();
-     }
- 
-    
+    // 3. Tìm kiếm bài viết (nếu có biến $search_query)
+    $search_results = array();
+    if (!empty($search_query)) {
+        $stmt_search = $conn->prepare("SELECT title_media_Post, picture_media_Post FROM media_post WHERE city_media_Post LIKE ? OR country_media_Post LIKE ?");
+        $search_param = "%".$search_query."%";
+        $stmt_search->bind_param("ss", $search_param, $search_param);
+
+        if ($stmt_search->execute()) {
+            $stmt_search->bind_result($title_post, $picture_post);
+            while ($stmt_search->fetch()) {
+                $search_results[] = array(
+                    'title_media_Post' => $title_post,
+                    'picture_media_Post' => $picture_post
+                );
+            }
+        } else {
+            echo "Error executing search query: " . $stmt_search->error;
+            exit();
+        }
+
+        $stmt_search->close();
+    }
 
 } else {
     echo "Database connection failed: " . mysqli_connect_error();
     exit();
 }
 ?>
+
 
 <?php
 if (session_status() === PHP_SESSION_NONE) {
