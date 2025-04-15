@@ -57,7 +57,7 @@ if ($conn) {
     $stmt_schedule->close();
 
     // 3. Tìm kiếm bài viết (nếu có biến $search_query)
-    $search_query = $_GET['search'] ?? '';
+    $search_query = isset($_GET['search']) ? $_GET['search'] : '';
     $search_results = array();
     if (!empty($search_query)) {
         $stmt_search = $conn->prepare("SELECT title_media_Post, picture_media_Post FROM media_post WHERE city_media_Post LIKE ? OR country_media_Post LIKE ?");
