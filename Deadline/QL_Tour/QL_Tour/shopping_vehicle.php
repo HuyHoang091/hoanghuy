@@ -56,7 +56,7 @@ if ($conn) {
         $params[] = $brand;
     }
 
-    $stmt->bind_param(str_repeat('s', count($params)), ...$params);
+    call_user_func_array(array($stmt, 'bind_param'), array_merge(array(str_repeat('s', count($params))), $params));
 
     if ($stmt->execute()) {
         $stmt->store_result(); // ✅ Quan trọng khi dùng bind_result
