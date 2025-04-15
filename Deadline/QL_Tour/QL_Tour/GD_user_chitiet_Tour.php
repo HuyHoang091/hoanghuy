@@ -2,7 +2,7 @@
 session_start();
 require_once 'ketnoi.php';
 
-$Id_Tour = $_GET['Id_Tour'] ?? '';
+$Id_Tour = $_GET['Id_Tour'];
 
 if ($conn) {
     // 1. Lấy thông tin tour
