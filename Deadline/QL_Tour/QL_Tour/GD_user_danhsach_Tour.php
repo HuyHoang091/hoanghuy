@@ -3,7 +3,7 @@ session_start();
 require_once 'ketnoi.php';
 
 if ($conn) {
-    $sql = "SELECT id, picture_Tour, buycount, name_Tour, intro_Tour, adultfee, childfee FROM Tour ORDER BY buycount DESC";
+    $sql = "SELECT id, picture_Tour, buycount, name_Tour, intro_Tour, adultfee, childfee FROM tour ORDER BY buycount DESC";
 
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
