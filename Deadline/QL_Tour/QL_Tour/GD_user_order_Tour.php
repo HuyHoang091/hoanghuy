@@ -7,12 +7,26 @@ $Id_Account = $_GET["Id_Account"];
 
 if ($conn) {
     // Lấy thông tin tour
-    $stmt = $conn->prepare("SELECT * FROM Tour WHERE id = ?");
+    $stmt = $conn->prepare("SELECT id, name_Tour, intro_Tour, picture_Tour, adultfee, childfee, buycount FROM tour WHERE id = ?");
     $stmt->bind_param("i", $Id_Tour);
-    
+
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+        // Gắn kết kết quả vào các biến
+        $stmt->bind_result($id, $name_Tour, $intro_Tour, $picture_Tour, $adultfee, $childfee, $buycount);
+        if ($stmt->fetch()) {
+            $row = array(
+                'id' => $id,
+                'name_Tour' => $name_Tour,
+                'intro_Tour' => $intro_Tour,
+                'picture_Tour' => $picture_Tour,
+                'adultfee' => $adultfee,
+                'childfee' => $childfee,
+                'buycount' => $buycount
+            );
+        } else {
+            echo "No tour found.";
+            exit();
+        }
     } else {
         echo "Error executing query: " . $stmt->error;
         exit();
@@ -21,63 +35,100 @@ if ($conn) {
     $stmt->close();
 
     // Truy vấn để lấy thông tin lịch trình từ bảng Schedule dựa trên id_Tour
-    $stmt_schedule = $conn->prepare("SELECT * FROM Schedule WHERE id_Tour = ?");
+    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, max_people, current_people FROM schedule WHERE id_Tour = ?");
     $stmt_schedule->bind_param("i", $Id_Tour);
-    
+
     if ($stmt_schedule->execute()) {
-        $result_schedule = $stmt_schedule->get_result();
-        
+        // Gắn kết kết quả vào các biến
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $day_start, $max_people, $current_people);
+
         // Lấy dữ liệu và lưu vào mảng $schedules
         $schedules = array();
-        while ($row_schedule = $result_schedule->fetch_assoc()) {
-            $schedules[] = $row_schedule;
+        while ($stmt_schedule->fetch()) {
+            $schedules[] = array(
+                'id' => $id_s,
+                'id_Tour' => $id_Tour_s,
+                'day_start' => $day_start,
+                'max_people' => $max_people,
+                'current_people' => $current_people
+            );
         }
     } else {
-        echo "Error executing query: " . $stmt_schedule->error;
+        echo "Error executing schedule query: " . $stmt_schedule->error;
         exit();
     }
 
     $stmt_schedule->close();
 
+    // Kiểm tra thông tin vận chuyển nếu có Id_Transport
     $Id_Transport = isset($_GET['Id_Transport']) ? $_GET['Id_Transport'] : null;
-$transport_info = null;
+    $transport_info = null;
 
-if ($Id_Transport) {
-    $stmt_transport = $conn->prepare("SELECT * FROM Transport WHERE id = ?");
-    $stmt_transport->bind_param("i", $Id_Transport);
+    if ($Id_Transport) {
+        $stmt_transport = $conn->prepare("SELECT id, startplace, endplace, brand, starttime, travel_type, return_date, service, price, id_Tour FROM transport WHERE id = ?");
+        $stmt_transport->bind_param("i", $Id_Transport);
     
-    if ($stmt_transport->execute()) {
-        $result_transport = $stmt_transport->get_result();
-        $transport_info = $result_transport->fetch_assoc();
-    } else {
-        echo "Error executing query: " . $stmt_transport->error;
-        exit();
+        if ($stmt_transport->execute()) {
+            // Gắn kết kết quả vào các biến tương ứng
+            $stmt_transport->bind_result(
+                $id_transport,
+                $startplace,
+                $endplace,
+                $brand,
+                $starttime,
+                $travel_type,
+                $return_date,
+                $service,
+                $price,
+                $id_Tour_transport
+            );
+    
+            if ($stmt_transport->fetch()) {
+                $transport_info = array(
+                    'id' => $id_transport,
+                    'startplace' => $startplace,
+                    'endplace' => $endplace,
+                    'brand' => $brand,
+                    'starttime' => $starttime,
+                    'travel_type' => $travel_type,
+                    'return_date' => $return_date,
+                    'service' => $service,
+                    'price' => $price,
+                    'id_Tour' => $id_Tour_transport
+                );
+            }
+        } else {
+            echo "Error executing query: " . $stmt_transport->error;
+            exit();
+        }
+    
+        $stmt_transport->close();
     }
+    
 
-    $stmt_transport->close();
-}
-
-$Id_Room = isset($_GET['Id_Room']) ? $_GET['Id_Room'] : null;
+    // Kiểm tra thông tin phòng nếu có Id_Room
+    $Id_Room = isset($_GET['Id_Room']) ? $_GET['Id_Room'] : null;
     $room_info = null;
 
     if ($Id_Room) {
         $stmt_room = $conn->prepare("
-            SELECT 
-                room_type_Hotel.name_type_room,
-                room_type_Hotel.price_room_type_Hotel,
-                Hotel.name_Hotel
-            FROM 
-                room_type_Hotel
-            JOIN 
-                Hotel ON room_type_Hotel.id_Hotel = Hotel.id
-            WHERE 
-                room_type_Hotel.id = ?
+            SELECT room_type_Hotel.name_type_room, room_type_Hotel.price_room_type_Hotel, Hotel.name_Hotel
+            FROM room_type_hotel
+            JOIN Hotel ON room_type_Hotel.id_Hotel = Hotel.id
+            WHERE room_type_Hotel.id = ?
         ");
         $stmt_room->bind_param("i", $Id_Room);
-        
+
         if ($stmt_room->execute()) {
-            $result_room = $stmt_room->get_result();
-            $room_info = $result_room->fetch_assoc();
+            // Gắn kết kết quả vào các biến
+            $stmt_room->bind_result($name_type_room, $price_room_type_Hotel, $name_Hotel);
+            if ($stmt_room->fetch()) {
+                $room_info = array(
+                    'name_type_room' => $name_type_room,
+                    'price_room_type_Hotel' => $price_room_type_Hotel,
+                    'name_Hotel' => $name_Hotel
+                );
+            }
         } else {
             echo "Error executing query: " . $stmt_room->error;
             exit();
@@ -91,6 +142,7 @@ $Id_Room = isset($_GET['Id_Room']) ? $_GET['Id_Room'] : null;
     exit();
 }
 ?>
+
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
