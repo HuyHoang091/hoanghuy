@@ -3,37 +3,39 @@ session_start();
 require_once 'ketnoi.php';
 
 if ($conn) {
-    // Truy vấn để lấy 3 Tour có lượt mua nhiều nhất dựa trên bảng Tour
-    $sql = "
-    SELECT *
-    FROM 
-        Tour
-    ORDER BY 
-        buycount DESC;
-    ";
+    $sql = "SELECT id, picture_Tour, buycount, name_Tour, intro_Tour, adultfee, childfee FROM Tour ORDER BY buycount DESC";
 
-    // Chuẩn bị và thực thi truy vấn
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        echo "Prepare failed: " . $conn->error;
+        exit();
+    }
+
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        
-        // Lấy dữ liệu và lưu vào mảng
+        $stmt->bind_result($id, $picture_Tour, $buycount, $name_Tour, $intro_Tour, $adultfee, $childfee);
+
         $topTours = array();
-        while ($row = $result->fetch_assoc()) {
-            $topTours[] = $row;
+        while ($stmt->fetch()) {
+            $topTours[] = array(
+                'id' => $id,
+                'picture_Tour' => $picture_Tour,
+                'buycount' => $buycount,
+                'name_Tour' => $name_Tour,
+                'intro_Tour' => $intro_Tour,
+                'adultfee' => $adultfee,
+                'childfee' => $childfee
+            );
         }
+
+        $stmt->close();
     } else {
         echo "Error executing query: " . $stmt->error;
         exit();
     }
-
-    // Đóng statement
-    $stmt->close();
 } else {
     echo "Database connection failed: " . mysqli_connect_error();
     exit();
 }
-
 ?>
 <?php
 if (session_status() === PHP_SESSION_NONE) {

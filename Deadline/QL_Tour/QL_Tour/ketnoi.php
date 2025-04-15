@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","ql_webphuoc");
+    $conn = mysqli_connect("localhost","root","","ql_webPhuoc");
 ?>
