@@ -33,11 +33,11 @@ if ($conn) {
     $stmt->close();
 
     // 2. Lấy lịch trình schedule
-    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
+    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, endday, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
     $stmt_schedule->bind_param("i", $Id_Tour);
 
     if ($stmt_schedule->execute()) {
-        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $max_people, $current_people);
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $endday, $max_people, $current_people);
 
         $schedules = array();
         while ($stmt_schedule->fetch()) {
@@ -45,6 +45,7 @@ if ($conn) {
                 'id' => $id_s,
                 'id_Tour' => $id_Tour_s,
                 'startday' => $startday,
+                'endday' => $endday,
                 'max_people' => $max_people,
                 'current_people' => $current_people
             );
