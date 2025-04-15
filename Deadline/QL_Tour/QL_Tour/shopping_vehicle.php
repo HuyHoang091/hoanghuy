@@ -16,7 +16,7 @@ $travel_type = isset($_GET['travel_type']) ? $_GET['travel_type'] : 'Oto';
 
 if ($conn) {
     // Base query
-    $sql = "SELECT * FROM Transport WHERE travel_type = ?";
+    $sql = "SELECT * FROM transport WHERE travel_type = ?";
 
     // Add filters to the query
     if (!empty($start_date)) {
@@ -59,13 +59,40 @@ if ($conn) {
     $stmt->bind_param(str_repeat('s', count($params)), ...$params);
 
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        
-        // Lấy dữ liệu và phân biệt phương tiện một chiều và khứ hồi
+        $stmt->store_result(); // ✅ Quan trọng khi dùng bind_result
+
+        // Giả sử bảng Transport có các cột sau:
+        // id, travel_type, brand, startplace, endplace, starttime, return_date, price
+        $stmt->bind_result(
+            $id_transport,
+            $startplace,
+            $endplace,
+            $brand,
+            $starttime,
+            $travel_type,
+            $return_date,
+            $service,
+            $price,
+            $id_Tour_transport);
+
         $one_way = array();
         $round_trip = array();
-        while ($row = $result->fetch_assoc()) {
-            if (empty($row['return_date'])) {
+
+        while ($stmt->fetch()) {
+            $row = array(
+                'id' => $id_transport,
+                'startplace' => $startplace,
+                'endplace' => $endplace,
+                'brand' => $brand,
+                'starttime' => $starttime,
+                'travel_type' => $travel_type,
+                'return_date' => $return_date,
+                'service' => $service,
+                'price' => $price,
+                'id_Tour' => $id_Tour_transport
+            );
+
+            if (empty($return_date)) {
                 $one_way[] = $row;
             } else {
                 $round_trip[] = $row;
