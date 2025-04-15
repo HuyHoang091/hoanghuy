@@ -98,7 +98,7 @@
 
             qrContainer.style.display = 'block';
 
-            const qrData = 'http://vemaybay.com:3000/confirm';
+            const qrData = 'http://192.168.10.190:3000/confirm';
             QRCode.toCanvas(qrCodeElement, qrData, function(error) {
                 if (error) console.error(error);
                 console.log('QR Code generated!');
