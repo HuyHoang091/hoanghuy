@@ -49,6 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             $stmt_update_schedule = $conn->prepare("UPDATE schedule SET buycount = ?, current_people = ? WHERE id = ?");
+            if (!$stmt_update_schedule) {
+                die("Lỗi prepare UPDATE schedule: " . $conn->error);
+            }
             $stmt_update_schedule->bind_param("iii", $new_buycount, $new_current_people, $id_Schedule);
             $stmt_update_schedule->execute();
 

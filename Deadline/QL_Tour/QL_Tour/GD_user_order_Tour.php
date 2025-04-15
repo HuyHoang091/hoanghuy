@@ -235,14 +235,14 @@ $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
             <input type="text" id="total-cost" class="form-control" readonly />
         </div>
         <form action="add_Order.php" method="POST" >
-            <input type="text" name="Id_Tour" value="<?php echo htmlspecialchars($Id_Tour); ?>">
-            <input type="text" name="Id_Room" value="<?php echo htmlspecialchars($Id_Room); ?>">
-            <input type="text" name="Id_Transport" value="<?php echo htmlspecialchars($Id_Transport); ?>">
-            <input type="text" name="Id_Account" value="<?php echo htmlspecialchars($Id_Account); ?>">
-            <input type="text" name="Id_Schedule" value="<?php echo $schedule['id']; ?>">
-            <input type="text" name="total_cost" id="total-cost-hidden" value="">
-            <input type="text" name="adult_count" id="adult-count-hidden" value="">
-            <input type="text" name="child_count" id="child-count-hidden" value="">
+            <input type="hidden" name="Id_Tour" value="<?php echo htmlspecialchars($Id_Tour); ?>">
+            <input type="hidden" name="Id_Room" value="<?php echo htmlspecialchars($Id_Room); ?>">
+            <input type="hidden" name="Id_Transport" value="<?php echo htmlspecialchars($Id_Transport); ?>">
+            <input type="hidden" name="Id_Account" value="<?php echo htmlspecialchars($Id_Account); ?>">
+            <input type="hidden" name="Id_Schedule" value="<?php echo $schedule['id']; ?>">
+            <input type="hidden" name="total_cost" id="total-cost-hidden" value="">
+            <input type="hidden" name="adult_count" id="adult-count-hidden" value="">
+            <input type="hidden" name="child_count" id="child-count-hidden" value="">
             <button type="submit" class="btn btn-primary" onclick="return confirm('Bạn chắc chắn muốn đặt')" >Đặt Tour</button>
         </form>
     </>
