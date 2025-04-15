@@ -40,7 +40,7 @@ if ($conn) {
 
     if ($stmt_schedule->execute()) {
         // Gắn kết kết quả vào các biến
-        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $max_people, $current_people);
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $endday, $max_people, $current_people);
 
         // Lấy dữ liệu và lưu vào mảng $schedules
         $schedules = array();
