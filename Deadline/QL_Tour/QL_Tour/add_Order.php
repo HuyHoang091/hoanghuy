@@ -27,18 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_schedule_info = $conn->prepare("SELECT current_people, max_people, buycount FROM schedule WHERE id = ?");
         $stmt_schedule_info->bind_param("i", $id_Schedule);
         $stmt_schedule_info->execute();
-        $result_schedule_info = $stmt_schedule_info->get_result();
-        $schedule_info = $result_schedule_info->fetch_assoc();
 
-        
-        if (!$schedule_info) {
+        // Gắn biến nhận kết quả
+        $stmt_schedule_info->bind_result($current_people, $max_people, $buycount);
+
+        if ($stmt_schedule_info->fetch()) {
+            // Dữ liệu đã được gán vào các biến $current_people, $max_people, $buycount
+        } else {
             echo "Không tìm thấy bản ghi Schedule với id = " . $id_Schedule;
             exit();
         }
-
-        $current_people = $schedule_info['current_people'];
-        $max_people = $schedule_info['max_people'];
-        $buycount = $schedule_info['buycount'];
 
         // Kiểm tra điều kiện total_count + current_people <= max_people
         if (($total_count + $current_people) <= $max_people) {
