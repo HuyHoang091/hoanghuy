@@ -35,12 +35,12 @@ if ($conn) {
     $stmt->close();
 
     // Truy vấn để lấy thông tin lịch trình từ bảng Schedule dựa trên id_Tour
-    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, max_people, current_people FROM schedule WHERE id_Tour = ?");
+    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, endday, max_people, current_people FROM schedule WHERE id_Tour = ?");
     $stmt_schedule->bind_param("i", $Id_Tour);
 
     if ($stmt_schedule->execute()) {
         // Gắn kết kết quả vào các biến
-        $stmt_schedule->bind_result($id_s, $id_Tour_s, $day_start, $max_people, $current_people);
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $max_people, $current_people);
 
         // Lấy dữ liệu và lưu vào mảng $schedules
         $schedules = array();
@@ -48,7 +48,8 @@ if ($conn) {
             $schedules[] = array(
                 'id' => $id_s,
                 'id_Tour' => $id_Tour_s,
-                'day_start' => $day_start,
+                'startday' => $startday,
+                'endday' => $endday,
                 'max_people' => $max_people,
                 'current_people' => $current_people
             );
