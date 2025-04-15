@@ -2,7 +2,7 @@
 session_start();
 require_once 'ketnoi.php';
 
-$Id_Tour = $_GET['Id_Tour'];
+$Id_Tour = $_GET['Id_Tour'] ?? '';
 
 if ($conn) {
     // 1. Lấy thông tin tour
@@ -33,24 +33,18 @@ if ($conn) {
     $stmt->close();
 
     // 2. Lấy lịch trình schedule
-    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, day_start, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
-    $stmt_schedule = $conn->prepare($sql);
-
-if ($stmt_schedule === false) {
-    echo "Error preparing statement: " . $conn->error;
-    exit();
-}
+    $stmt_schedule = $conn->prepare("SELECT id, id_Tour, startday, max_people, current_people FROM schedule WHERE id_Tour = ? AND current_people < max_people");
     $stmt_schedule->bind_param("i", $Id_Tour);
 
     if ($stmt_schedule->execute()) {
-        $stmt_schedule->bind_result($id_s, $id_Tour_s, $day_start, $max_people, $current_people);
+        $stmt_schedule->bind_result($id_s, $id_Tour_s, $startday, $max_people, $current_people);
 
         $schedules = array();
         while ($stmt_schedule->fetch()) {
             $schedules[] = array(
                 'id' => $id_s,
                 'id_Tour' => $id_Tour_s,
-                'day_start' => $day_start,
+                'startday' => $startday,
                 'max_people' => $max_people,
                 'current_people' => $current_people
             );
