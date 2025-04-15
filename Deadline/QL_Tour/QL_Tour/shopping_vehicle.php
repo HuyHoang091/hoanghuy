@@ -56,7 +56,14 @@ if ($conn) {
         $params[] = $brand;
     }
 
-    call_user_func_array(array($stmt, 'bind_param'), array_merge(array(str_repeat('s', count($params))), $params));
+   // Đảm bảo tất cả các tham số trong $params đều là tham chiếu
+foreach ($params as $key => $value) {
+    $params[$key] = &$params[$key];  // Chuyển mỗi phần tử thành tham chiếu
+}
+
+// Gọi phương thức bind_param
+call_user_func_array(array($stmt, 'bind_param'), array_merge(array(str_repeat('s', count($params))), $params));
+
 
     if ($stmt->execute()) {
         $stmt->store_result(); // ✅ Quan trọng khi dùng bind_result
