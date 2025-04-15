@@ -16,7 +16,7 @@
     
 </head>
 <body>
-    <form id="qr" method="post" action="http://192.168.10.190/hoanghuy/qr-access/public/verify-card.php">
+    <form id="qr" method="post" action="http://vemaybay.com/hoanghuy/qr-access/public/verify-card.php">
         <div style="height: 50px;">
             <div onclick="huy()" style="float: right">
                         <div style="font-size: 27px;
@@ -98,7 +98,7 @@
 
             qrContainer.style.display = 'block';
 
-            const qrData = 'http://192.168.10.190:3000/confirm';
+            const qrData = 'http://vemaybay.com:3000/confirm';
             QRCode.toCanvas(qrCodeElement, qrData, function(error) {
                 if (error) console.error(error);
                 console.log('QR Code generated!');
