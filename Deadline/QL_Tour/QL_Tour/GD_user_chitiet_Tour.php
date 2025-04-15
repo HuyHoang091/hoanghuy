@@ -93,7 +93,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 // Kiểm tra xem người dùng đã đăng nhập chưa
 $isLoggedIn = isset($_SESSION['user']);
-$Id_Account = $user['id'] ?? null;
+$Id_Account = isset($user['id']) ? $user['id'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="vi">
