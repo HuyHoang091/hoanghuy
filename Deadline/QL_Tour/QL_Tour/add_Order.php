@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_schedule_info = $conn->prepare("SELECT current_people, max_people, buycount FROM schedule WHERE id = ?");
         $stmt_schedule_info->bind_param("i", $id_Schedule);
         $stmt_schedule_info->execute();
+        $stmt_schedule_info->store_result(); 
 
         // Gắn biến nhận kết quả
         $stmt_schedule_info->bind_result($current_people, $max_people, $buycount);
