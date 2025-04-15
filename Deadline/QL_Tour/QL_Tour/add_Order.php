@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn) {
         // Lấy thông tin current_people và max_people từ bảng Schedule
-        $stmt_schedule_info = $conn->prepare("SELECT current_people, max_people, buycount FROM Schedule WHERE id = ?");
+        $stmt_schedule_info = $conn->prepare("SELECT current_people, max_people, buycount FROM schedule WHERE id = ?");
         $stmt_schedule_info->bind_param("i", $id_Schedule);
         $stmt_schedule_info->execute();
         $result_schedule_info = $stmt_schedule_info->get_result();
@@ -50,14 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo $total_cost;
 
 
-            $stmt_update_schedule = $conn->prepare("UPDATE Schedule SET buycount = ?, current_people = ? WHERE id = ?");
+            $stmt_update_schedule = $conn->prepare("UPDATE schedule SET buycount = ?, current_people = ? WHERE id = ?");
             $stmt_update_schedule->bind_param("iii", $new_buycount, $new_current_people, $id_Schedule);
             $stmt_update_schedule->execute();
 
             // Cập nhật status_room_type_Hotel trong bảng room_Hotel nếu có Id_Room
             if ($Id_Room !== null) {
                 $new_status_room_type_Hotel = "Có người";
-                $stmt_update_room = $conn->prepare("UPDATE room_Hotel SET status_room_Hotel = ? WHERE id = ?");
+                $stmt_update_room = $conn->prepare("UPDATE room_hotel SET status_room_Hotel = ? WHERE id = ?");
                 $stmt_update_room->bind_param("si", $new_status_room_type_Hotel, $Id_Room);
                 $stmt_update_room->execute();
             }
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $Id_Transport = null;
             }
             // Insert dữ liệu vào bảng Order_Tour nếu có đủ thông tin
-                $stmt_insert_order = $conn->prepare("INSERT INTO Order_Tour (adult_number_Order_Tour, child_number_Order_Tour, total_price_Order_Tour, payday_Order_Tour, id_room_Hotel, id_Transport, id_Schedule, id_Account) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt_insert_order = $conn->prepare("INSERT INTO order_tour (adult_number_Order_Tour, child_number_Order_Tour, total_price_Order_Tour, payday_Order_Tour, id_room_Hotel, id_Transport, id_Schedule, id_Account) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt_insert_order->bind_param("iidsiiii", $adult_count, $child_count, $total_cost, $payday, $Id_Room, $Id_Transport, $id_Schedule, $id_Account);
 
                 if ($stmt_insert_order->execute()) {
