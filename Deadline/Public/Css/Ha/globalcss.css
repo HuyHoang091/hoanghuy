@@ -1,0 +1,27 @@
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-middle {
+    align-items: center;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.form-select:focus {
+    box-shadow: none !important;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/40f672cbfb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="trangchucamnang.css">
+    <title>Cẩm nang du lịch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button {
+            color: black;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 50px;
+            height: 70px;
+            align-items: center;
+        }
+        .logoct {
+            z-index: 1;
+            flex: 1;
+            max-width: 100px;
+            height: auto;
+        }
+        .menu {
+            flex: 4;
+            display: flex;
+        }
+        .menu > li {
+            padding: 0 12px;
+            position: relative;
+        }
+        .menu > li:hover .sub-menu {
+            visibility: visible;
+            top: 30px;
+        }
+        .sub-menu {
+            visibility: hidden;
+            position: absolute;
+            width: 150px;
+            border: 1px solid #ccc;
+            padding: 10px 0 10px;
+            top: 50px;
+            transition: 0.3s;
+            z-index: 1;
+            background-color: #333;
+        }
+        .sub-menu ul {
+            padding-left: 20px;
+        }
+        .sub-menu li a {
+            font-weight: normal!important;
+            font-size: 16px!important;
+            color: #ccc;
+        }
+        .menu li a {
+            font-size: 15px;
+            font-weight: bold!important;
+            display: block;
+            line-height: 35px;
+        }
+        .other {
+            flex: 1;
+            display: flex;
+        }
+        .other > li {
+            padding: 10px;
+        }
+        .other > li:first-child {
+            position: relative;
+        }
+        .size-input {
+            width: 300px;
+            height: 30px;
+        }
+        .fa-search {
+            width: 50px;
+            height: 30px;
+        }
+        .other > li:first-child button {
+            position: absolute;
+        }
+        /* New Columns */
+        .columns-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 50px;
+            width: 90%;
+        }
+        .column1 {
+            width: 15%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            height: 250px;
+            background-color: #f9f9f9;
+        
+        }
+        .column2{
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-left: 70px;
+            background-color: #f9f9f9;
+        }
+        .column2 p {
+            font-size: 20px;
+
+        }
+        .hr2 {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 15px 0px ;
+          
+        }
+     
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="logoct" src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png">
+        </div>
+        <ul class="menu">
+            <li><a href="/hoanghuy/Deadline/BaiTapLon/khachsan.php">Khách sạn</a></li>
+            <li><a href="/hoanghuy/Deadline/QL_Tour/QL_Tour/GD_user_danhsach_Tour.php">Tour</a></li>
+            <li><a href="/hoanghuy/Deadline/Home/Get_data">Vé máy bay</a></li>
+            <li><a href="/hoanghuy/Deadline/gioithieu.html">Giới thiệu</a></li>
+            <li><a href="/hoanghuy/Deadline/hotro.html">Hỗ trợ</a></li>
+        </ul>
+    </header>
+    <hr>
+    <div class="columns-container">
+        <div class="column1">
+            <h3><a href="gioithieu.html"> Giới thiệu</a></h3>
+            <br>
+            <a href=""> Về chúng tôi</a>
+            <hr class="hr2">
+            <a href="chinhsach.html"> Điều kiện & điều khoản</a>
+            <hr class="hr2">
+            <a href="quyche.html"> Quy chế hoạt động</a>
+            <hr class="hr2">
+            <a href="hotro.html"> Hỗ Trợ </a>
+            
+                       
+        </div>
+        <div class="column2">
+            <h2>Các câu hỏi thường gặp</h2>
+            <br>
+            <p><b>Giá Phòng</b>
+                <br>
+                • Giá công bố là giá sau khi đã tính tất cả các phí phải không?
+                <br>
+                • Chúng tôi có được giảm giá nếu đặt số lượng phòng nhiều không?</p>
+                <br>
+                
+               <p> <b>Đặt Phòng</b>
+                <br>
+                • Đặt phòng tại iVIVU.com tôi được lợi/tiền/quà tặng gì không?
+                <br>
+                • Tôi muốn đặt phòng cho tập thể hoặc cho gia đình từ 4 người nhưng tôi không biết tìm nhanh ở đâu. Phải xem từng loại phòng từng khách sạn thật mất thời gian!</p>
+                
+                <br>
+                <p><b>Thay Đổi Thông Tin Đặt Phòng</b>
+                    <br>
+                • Tôi có thể thay đổi các thông tin khách hàng như: tên khách nhận phòng, địa chỉ email và điện thoại,… được không?
+                <br>
+                • Việc thay đổi hay hủy phòng có dễ dàng không? Có tốn phí không?</p>
+                <br>
+                
+                <p><b>Thanh Toán</b>
+                    <br>
+                • Tại sao tôi không được thanh toán trực tiếp tại khách sạn?
+                <br>
+                • Chúng tôi có thể đặt cọc trước 50% số tiền cần thanh toán cho khách sạn được không?
+                <br>
+                • 24 tiếng thanh toán tiền phòng ngay rất gấp gáp cho chúng tôi. Chúng tôi đặt phòng trực tiếp tại khách sạn qua điện thoại rồi đến đó thanh toán tiện lợi hơn nhiều.
+                <br>
+                • iVIVU.com có phương thức thanh toán nào ngoài thẻ tín dụng không?
+                <br>
+                • Tôi có phải trả phí chuyển tiền khi chọn phương thức thanh toán chuyển khoản qua ngân hàng ACB không?</p>
+                <br>
+                
+                <p><b>Xác Nhận Thông Tin</b>
+                    <br>
+                • Sau khi chúng tôi thanh toán thành công, chúng tôi sẽ có xác nhận gì từ cty?
+                <br>
+                • Tại sao trên xác nhận đặt phòng không có con dấu, nhìn rất dễ bị làm giả. Mang đến khách sạn có gây khó dễ không?</p>
+                <br>
+                
+                <p><b>Bảo Mật Thông Tin</b>
+                    <br>
+                • Thông tin cá nhân của tôi có được giữ kín không?
+                <br>
+                • Quy trình thanh toán trực tuyến bằng thẻ tín dụng có an toàn không?</p>
+                
+                <br>
+                <p><b>Thông Tin Khác</b>
+                    <br>
+                • Tôi muốn biết xung quanh khách sạn có chỗ giải trí hay hàng ăn nào.
+                <br>
+                • Tôi cần nhân viên CSKH iVIVU.com như một người quản lý kỳ nghỉ riêng của gia đình tôi nên tôi cần cung cấp thông tin vé máy bay/tàu lửa/tàu cánh ngầm ngoài thông tin khách sạn.
+                <br>
+                • Tôi muốn mua voucher khách sạn từ iVIVU.com (số tiền cụ thể) để tặng bạn bè hay người thân.
+                <br>
+                • Tôi sẽ làm gì nếu khách sạn không thể cung cấp phòng khi tôi đến nhận phòng?</p>
+                
+                 
+                
+                
+                
+        </div>
+    </div>
+    <!----------------------------------------------IMG-APP------------------------------------------------------->
+    <hr class="hr2">
+    <section class="app-container">
+        
+        <div class="img-app">
+            <p>Tải ứng dụng UTTVIVU</p>
+            <img src="/hoanghuy/Deadline/Public/Pictures/pictute/appstore.jpg">
+            <img src="/hoanghuy/Deadline/Public/Pictures/pictute/gooleplay.jpg">
+        </div>
+
+    </section>
+    <!----------------------------------------------FOOT------------------------------------------------------->
+   
+    <div class="footer-top">
+        <li><a href=""><img src="/hoanghuy/Deadline/Public/Pictures/img/logoct.png"></a></li>
+        <li><a href=""></a>Liên hệ</li>
+        <li><a href=""></a>Điều kiện & Điều khoản</li>
+        <li><a href=""></a>Giới thiệu</li>
+        <li>
+            <a href="" class="fab fa-facebook-f"></a>
+            <a href="" class="fab fa-youtube"></a>
+            <a href="" class="fab fa-twitter"></a>
+            <a href="" class="fab fa-tiktok"></a>
+        </li>
+    </div>
+    <div class="footer-center">
+    <p>
+        Công ty cổ phần trách nhiệm hữu hạn 4 thành viên với số đăng ký kinh doanh: 0123456789 <br>
+        Địa chỉ: 54 Triều Khúc, Thanh Xuân, Hà Nội <br>
+        Hỗ trợ: <b> 0969688842 </b>
+    </p>
+    </div>
+    <div class="footer-bottom">
+        <p>4tv@tourtravelchill.com</p>
+    </div>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+    const imgContainer = document.querySelector('.aspect-ratio-169')
+    const dotItem = document.querySelectorAll(".dot")
+    let imgNuber = imgPosition.length
+    let index = 0
+    //console.log(imgPosition)
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem [index].addEventListener("click",function(){
+            Slider(index)
+        })
+    })
+    function imgSlide(){
+        index++;
+        console.log(index)
+        if(index>=imgNuber){index=0}
+        Slider(index)
+    }
+    function Slider(index){
+imgContainer.style.left = "-" +index*100+"%"
+const dotActive = document.querySelector('.active')
+dotActive.classList.remove("active")
+dotItem[index].classList.add("active")
+    }
+setInterval(imgSlide,5000)
+</script>
+</html>

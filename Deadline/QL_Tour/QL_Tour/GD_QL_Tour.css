@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica, Arial, sans-serif";
+}
+/*-----------------------------------HEADER--------------------------------------*/
+header {
+  display: flex;
+  width: 100%;
+  padding-left: 20px;
+  height: 75px;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.2);
+}
+header.sticky {
+  background: rgba(255, 255, 255, 0.7);
+}
+header:hover {
+  background: rgba(255, 255, 255, 1);
+}
+.logoct {
+  flex: 1;
+  max-width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+.ipb-search {
+  text-align: center;
+  width: 100%;
+}
+.ip-search {
+  width: 50%;
+}
+.ip-search input {
+  width: 50%;
+  height: 42px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  text-align: center;
+}
+.ip-search button {
+  height: 42px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+/*-----------------------------------Menu--------------------------------------*/
+.menu {
+  height: 100px;
+  text-align: center;
+  float: left;
+  bottom: 12px;
+}
+.menu-main {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  position: fixed;
+}
+.menu-main div {
+  width: 100%;
+  padding: 39px;
+  height: 30px;
+}
+
+.menu-main div a button {
+  width: 200px;
+  height: 50px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  bottom: 30px;
+}
+
+/*-----------------------------------Container--------------------------------------*/
+.container {
+  width: 75%;
+  margin-left: 20%;
+  padding: 20px;
+}
+
+/*-----------------------------------Table--------------------------------------*/
+/* CSS cho to.àn bộ bảng */
+.table {
+  width: 100%; /* Sửa thành 100% để bảng chiếm toàn bộ chiều rộng container */
+  border-collapse: collapse;
+  background-color: #343a40; /* Màu nền cho bảng */
+  color: white; /* Màu chữ */
+}
+
+/* CSS cho hàng tiêu đề */
+.th {
+  color: white;
+  padding: 15px;
+  text-align: left;
+  background-color: #495057; /* Màu nền cho hàng tiêu đề */
+}
+
+/* CSS cho các hàng dữ liệu */
+.td {
+  color: white;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #495057; /* Đường viền dưới cho các hàng */
+}
+
+/* CSS cho các hình ảnh */
+.td img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px; /* Bo góc cho hình ảnh */
+}
+
+/* CSS cho các nút "Sửa" và "Xóa" */
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button.sua {
+  background-color: #ffc107; /* Màu nền cho nút Sửa */
+  color: black; /* Màu chữ cho nút Sửa */
+}
+
+.button.xoa {
+  background-color: #dc3545; /* Màu nền cho nút Xóa */
+  color: white; /* Màu chữ cho nút Xóa */
+}
+
+/* CSS cho nút "Thêm mới" */
+.button.them-moi {
+  padding: 10px 20px;
+  background-color: #007bff; /* Màu nền cho nút Thêm mới */
+  color: white; /* Màu chữ cho nút Thêm mới */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+/* ---------------------------------------------------modal------------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  position: relative;
+  margin: auto;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a max-width for the modal */
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modal-header h4 {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 15px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.modal-footer .btn {
+  margin-left: 10px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-primary,
+.btn-danger {
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  opacity: 0.8;
+}

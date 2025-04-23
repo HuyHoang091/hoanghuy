@@ -1,0 +1,419 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica, Arial, sans-serif";
+}
+/*-----------------------------------HEADER--------------------------------------*/
+header {
+  display: flex;
+  width: 100%;
+  padding: 1%;
+  height: auto;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+}
+header.sticky {
+  background-color: white;
+}
+header:hover {
+  background-color: white;
+}
+header h1 {
+  color: black;
+}
+.logoct {
+  flex: 1;
+  max-width: 8%;
+  height: auto;
+  margin-right: 2%;
+}
+.ctn-search {
+  text-align: center;
+  width: 50%;
+}
+.ql-search {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5%;
+  text-align: right;
+}
+.ql-search input {
+  position: absolute;
+  font-size: 100%;
+  width: 50%;
+  height: 42px;
+  right: 25%;
+  border-top-left-radius: 40px 40px;
+  border-bottom-left-radius: 40px 40px;
+  padding: 10px 20px 10px 30px;
+}
+.tk-search{
+  margin-left: 10%;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.tk-search label{
+  font-size: 20px;
+}
+.tk-search input {
+  border-radius: 4px;
+  font-size: 100%;
+  width: 25%;
+  height: 42px;
+  right: 25%;
+  padding: 10px 20px 10px 30px;
+}
+/*-----------------------------------Button-Header--------------------------------------*/
+
+
+.ql-search button {
+  position: absolute;
+  width: 50px;
+  height: 42px;
+  right: 160px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background-color: bisque;
+}
+.ql-search button img {
+  height: 42px;
+}
+
+.ql-search button:hover {
+  background-color: burlywood;
+}
+.btn-dialog {
+  width: 12%;
+}
+.btn-dialog button {
+  width: 100%;
+  height: 42px;
+  border-radius: 4px;
+  background-color: bisque;
+}
+.btn-dialog button:hover {
+  background-color: burlywood;
+}
+
+.tk-search button{
+  width: 10%;
+  height: 42px;
+  border-radius: 4px;
+  background-color:bisque;
+}
+.tk-search button:hover{
+  background-color: burlywood;
+
+}
+/*-----------------------------------Menu--------------------------------------*/
+.menu {
+  position: relative;
+  width: 20%;
+  text-align: center;
+  float: left;
+}
+.menu-main {
+  margin-top: 1.5%;
+  margin-left: 2%;
+  position: fixed;
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.menu-main h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.menu-main div {
+  margin-bottom: 10px;
+}
+
+.menu-main a {
+  text-decoration: none;
+}
+/*-----------------------------------Button-Menu--------------------------------------*/
+
+.menu-main button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: bisque;
+
+  transition: background-color 0.3s ease;
+}
+
+.menu-main button:hover {
+  background-color: burlywood;
+}
+.button-modal button {
+  height: 42px;
+}
+/*----------------------------------Sub-Menu--------------------------------------*/
+.menu-tk{
+  position: relative;
+}
+.submenu-container {
+  position: absolute;
+  visibility: hidden;
+  padding: 1%;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  height: auto;
+  text-align: center;
+  background-color:white;
+  border-radius: 4px;
+}
+.submenu-container button {
+  width: 95%;
+  height: 42px;
+  margin: 0px 5px 15px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color:bisque;
+}
+.submenu-item:hover {
+  background-color:burlywood;
+}
+.menu-tk:hover .submenu-container {
+  visibility: visible;
+}
+/*-----------------------------------Table--------------------------------------*/
+.tbdskhachsan h2 {
+  margin-left: 50%;
+}
+.table {
+  width: 75%;
+  margin-left: 22.5%;
+}
+.table thead {
+  font-size: 24px;
+  height: 75px;
+  text-align: center;
+  background-color: bisque;
+}
+thead tr td {
+  padding: 5px;
+}
+tbody {
+  background-color: white;
+  text-align: left;
+  font-size: 20px;
+  vertical-align: top;
+  border-top: 2px solid #333;
+}
+tbody tr td {
+  border-top: 2px solid #333;
+  padding: 1%;
+}
+tbody tr td img {
+  width: 10px;
+  height: 10px;
+}
+.table.hover tbody tr:hover {
+  background-color: rgba(255, 255, 1, 0.1);
+}
+.tbimg {
+  width: 100%;
+  height: auto;
+}
+
+/*----------------------------------size-table--------------------------------------*/
+
+.cot-name {
+  width: 15%;
+}
+.cot-intro {
+  width: 10%;
+}
+.cot-address {
+  width: 9%;
+}
+.cot-buycount {
+  width: 6%;
+}
+.cot-price {
+  width: 15%;
+}
+.cot-picture {
+  width: 10%;
+}
+.cot-ql {
+  width: 10%;
+}
+.cot-suaxoa {
+  width: 10%;
+}
+/*-----------------------------------table-button-------------------------------------*/
+
+.btn-table {
+  border: none;
+  width: 100%;
+  height: 42px;
+  border-radius: 4px;
+  background-color: bisque;
+}
+.btn-table:hover {
+  background-color: burlywood;
+}
+.btn-sua {
+  border: none;
+  width: 45%;
+  height: 42px;
+  border-radius: 4px;
+  background-color: green;
+}
+.btn-sua:hover {
+  background-color: darkgreen;
+}
+.btn-xoa {
+  border: none;
+  width: 45%;
+  height: 42px;
+  border-radius: 4px;
+  background-color: red;
+}
+.btn-xoa:hover {
+  background-color: darkred;
+}
+/*-----------------------------------Modal--------------------------------------*/
+.dialog-themkhachsan {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  visibility: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.closee {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.dialog-themkhachsan:target {
+  visibility: visible;
+}
+.form {
+  margin-left: 25%;
+  padding: 50px 25px 30px 25px;
+  width: 50%;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  background-color: bisque;
+}
+.form-them {
+  width: 100%;
+  text-align: left;
+}
+.form-them label {
+  font-size: 30px;
+  padding-top: 1%;
+  padding-left: 10%;
+}
+/*-----------------------------------INPUT(Khách sạn)--------------------------------------*/
+.form-group {
+  margin-top: 3%;
+}
+.form-them input {
+  font-size: 16px;
+  width: 50%;
+  height: 30px;
+}
+#nameHotel {
+  margin-left: 0px;
+}
+#introHotel {
+  margin-left: 83px;
+}
+#detailHotel {
+  margin-left: 91px;
+}
+#numberHotel {
+  margin-left: 90px;
+}
+#roadHotel {
+  margin-left: 41px;
+}
+#cityHotel {
+  margin-left: 0px;
+}
+#countryHotel {
+  margin-left: 60px;
+}
+#pictureHotel {
+  margin-left: 118px;
+}
+.form-them button {
+  margin-top: 15px;
+  margin-left: 110px;
+  width: 100px;
+  height: 30px;
+}
+.form-group button {
+  margin-left: 20%;
+  width: 20%;
+  height: 42px;
+  float: left;
+  cursor: pointer;
+}
+.btn-them {
+  border-radius: 4px;
+  background-color:lightgreen;
+}
+.btn-dong {
+  width: 50%;
+  height: 42px;
+  border-radius: 4px;
+  background-color: lightcoral;
+}
+.btn-them:hover {
+  background-color: chartreuse;
+}
+.btn-dong:hover {
+  background-color: red;
+}
+
+/*-----------------------------------INPUT(Loai Phong)--------------------------------------*/
+#detailCategory {
+  margin-left: 93px;
+}
+#priceCategory {
+  margin-left: 145px;
+}
+#pictureCategory {
+  margin-left: 130px;
+}
+/*-----------------------------------INPUT( Phong)--------------------------------------*/
+#statusRoom {
+  margin-left: 5px;
+  font-size: 16px;
+  width: 50%;
+  height: 30px;
+}
+#pictureRoom {
+  margin-left: 77px;
+}

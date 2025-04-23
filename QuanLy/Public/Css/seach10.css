@@ -1,0 +1,109 @@
+.tkiem{
+    background: #e0e0e0;
+    min-height: 50px;
+    align-content: center;
+    display: grid;
+    grid-template-columns: 3.2fr 4fr 1fr;
+    padding: 10px;
+    gap: 15px;
+}
+.div1{
+    margin: 0px 15% 35px 15%;
+}
+.input[type='date'] .select{
+    width: 100%;
+}   
+.se{
+    width: 100%;
+    height: 100%;
+}
+.date{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.grid-cot1{
+    display: grid;
+    grid-template-columns: 62.5% 31.9%;
+    padding: 0px 15% 0px 15%;
+    gap: 40px
+}
+.grid-cot2{
+    display: grid;
+    grid-template-columns: 31.9% 62.5%;
+    padding: 0px 15% 0px 15%;
+    gap: 40px;
+}
+.grid-cot{
+    display: grid;
+    padding: 0px 15% 0px 15%;
+    gap: 40px
+}
+.grid-div{
+    background: white;
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    display: grid;
+    margin-bottom: 10px;
+}
+.grid-div1{
+    background: white;
+    width: 100%;
+    min-height: 120px;
+    height: 200px;
+    padding: 15px;
+    display: none;
+    margin-bottom: 10px;
+}
+.grid-div2{
+    background: white;
+    width: 100%;
+    min-height: 120px;
+    height: 200px;
+    padding: 15px;
+    display: grid;
+    margin-bottom: 10px;
+}
+.phanlo{    
+    display: grid;
+    grid-template-columns: 4fr 3fr 2fr 4fr;
+}
+.phanlo-ve{    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.phanlo-ve1{    
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+}
+.phancot{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+.grid-an{
+    opacity: 0.5;
+    font-size: 11px;
+}
+.grid-hien{
+    opacity: 1;
+}
+.phanlo-an{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.an{
+    display: none;
+}
+.hien{
+    display: block;
+}
+.span{
+    grid-column: span 2;
+}
+.ss{}
+.grid-thu{
+    display: none !important;
+}
+.thu{
+    opacity: 0;
+}
